@@ -16,11 +16,19 @@ import Store.Drive;
 import java.util.concurrent.Semaphore;
 
 /**
- *
+ * Patron de diseño Factory para la creacion de Workers
  * @author Masa500
  */
 public class WorkerFactory {
     
+    /**
+     * Metodo que instancia un Worker 
+     * @param workerType WorkerTypeEnum - Tipo de Worker
+     * @param drive Drive - Almacen que tendra el Worker
+     * @param mutex Semaphore - Semaforo que tendra el Worker
+     * @param companyRules - Reglas y datos de la compañia asociada al Worker
+     * @return Worker - instancia de un Worker
+     */
     public Worker makeWorker(WorkerTypeEnum workerType, Drive drive, Semaphore mutex, CompanyRules companyRules){
     
         switch(workerType){

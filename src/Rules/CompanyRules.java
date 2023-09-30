@@ -5,24 +5,30 @@
 package Rules;
 
 /**
- *
+ * Contiene los datos primordiales de una compañia como elemento para hacer un juego, ganancias, 
+ * numero de empleados y produccion por dia dependiendo del tipo de trabajo
  * @author Masa500
  */
 public class CompanyRules {
     
+    //Elementos necesarios para hacer un juego
     protected int levelsNeedIt;
     protected int narrativeNeedIt;
     protected int DLCsNeedIt;
     protected int spritesNeedIt;
     protected int sistemsNeedIt;
     
+    //Ingresos
     protected float income;
     protected float incomeDLC;
     
+    //Intervalo de tiempo(dias) para un juego con DLC(s)
     protected int gamesToGamesDLC;
-	
+
+    //Numero de empleados
     protected int employees;
-	
+
+    //Costo por hora por el puesto de trabajo
     private float levelCost = 13f;
     private float narrativeCost = 10f;
     private float DLCCost = 17f;
@@ -30,17 +36,35 @@ public class CompanyRules {
     private float sistemCost = 8f;
     private float integratorCost = 25f;
 	
+    //Produccion por dia del elemento
     protected float levelProductionPerDay;
     protected float narrativeProductionPerDay;
     protected float DLCsProductionPerDay;
     protected float spritesProductionPerDay;
     protected float sistemsProductionPerDay;
     
+    /**
+     * Identifica si un juego se puede hacer con los elementos almacenados en el Drive
+     * @param niveles int - Numero de niveles disponibles
+     * @param narrativa int - Numero de guiones disponibles
+     * @param sprites int - Numero de sprites disponibles
+     * @param logicas int - Numero de sistemas disponibles
+     * @return boolean - (true) Si se puede elaborar el juego y (false) si no
+     */
     public boolean canMakeGame(int niveles, int narrativa, int sprites, int logicas) {
     	
     	return (niveles >= this.levelsNeedIt && narrativa >= this.narrativeNeedIt && sprites >= this.spritesNeedIt && logicas >= this.sistemsNeedIt);
     }
     
+    /**
+     * Identifica si un juego se puede hacer con los elementos almacenados en el Drive
+     * @param niveles int - Numero de niveles disponibles
+     * @param narrativa int - Numero de guiones disponibles
+     * @param sprites int - Numero de sprites disponibles
+     * @param logicas int - Numero de sistemas disponibles
+     * @param DLCs int - Numero de DLCs disponibles
+     * @return boolean - (true) Si se puede elaborar el juego y (false) si no
+     */
     public boolean canMakeGameDLC(int niveles, int narrativa, int sprites, int logicas, int DLCs) {
     	
     	return (niveles >= this.levelsNeedIt && narrativa >= this.narrativeNeedIt && sprites >= this.spritesNeedIt && logicas >= this.sistemsNeedIt && DLCs >= this.DLCsNeedIt);

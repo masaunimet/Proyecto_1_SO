@@ -5,11 +5,14 @@
 package Rules;
 
 /**
- *
+ * Tiene los datos de Capcom
  * @author Masa500
  */
 public class CapcomRules extends CompanyRules{
     
+    /**
+     * Genera los datos necesarios que tiene que ver con la compañia de Capcom
+     */
     public CapcomRules() {
     	
     	this.levelsNeedIt = 2;

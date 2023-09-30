@@ -7,26 +7,39 @@ package Store;
 import Enums.WorkerTypeEnum;
 
 /**
- *
+ * Es el que almacena los elementos necesarios para crear un juego, la cantidad de juegos,
+ * gastos, ingresos y cantidades maximas de cada elemento
  * @author Masa500
  */
 public class Drive {
 
+    //elementos para juegos
     private int levels;
     private int narrative;
     private int DLCs;
     private int sprites;
     private int sistems;
     
+    //juegos
     private int games;
+    //gastos e ingresos
     private float utility;
     
+    //maximos
     private final int maxLevels = 20;
     private final int maxNarrative = 25;
     private final int maxDLCs = 10;
     private final int maxSprites = 55;
     private final int maxSistems = 35;
 
+    /**
+     * Constructor que setea los elementos para un juego
+     * @param niveles int - Numero de niveles
+     * @param narrative int - Numero de guiones
+     * @param DLCs int - Numero de DLCs
+     * @param sprites int - Numero de sprites
+     * @param logicas int - Numero de sistemas de juego
+     */
     public Drive(int niveles, int narrative,int DLCs, int sprites, int logicas) {
         this.levels = niveles;
         this.narrative = narrative;
@@ -35,6 +48,9 @@ public class Drive {
         this.sistems = logicas;
     }
     
+    /**
+     * Constructor que setea los elementos para un juego
+     */
     public Drive() {
         this.levels = 0;
         this.narrative = 0;
@@ -43,6 +59,11 @@ public class Drive {
         this.sistems = 0;
     }
     
+    /**
+     * Agrega el elemento al Drive o almacen
+     * @param productQty int - cantidad del elemento que se agregara
+     * @param type WorkerTypeEnum - tipo de Elemento que se agregara
+     */
     public void addProduct(int productQty, WorkerTypeEnum type){
     
     switch(type) {

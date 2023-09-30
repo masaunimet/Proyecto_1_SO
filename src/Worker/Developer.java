@@ -15,7 +15,7 @@ import Store.Drive;
 import java.util.concurrent.Semaphore;
 
 /**
- *
+ * Es el rol de los trabajadores que realizan Sprites, Guiones, Niveles , DLCs y Sistemas de juego
  * @author Masa500
  */
 public class Developer extends Worker{
@@ -24,6 +24,15 @@ public class Developer extends Worker{
     private float acc = 0;
     private Drive drive;
     
+    /**
+     * Realiza el Constructor de Worker y luego las variables de su clase
+     * @param type WorkerTypeEnum - Tipo de trabajo
+     * @param pp float - Produccion por hora de trabajo
+     * @param costPerHour float - Costo por hora de trabajo
+     * @param drive Drive - almacen donde albergar los elementos creados
+     * @param m Semaphore - Semaforo
+     * @param gameRules CompanyRules - datos de la compañia asociada
+     */
     public Developer (WorkerTypeEnum type, float pp, float costPerHour, Drive drive, Semaphore m, CompanyRules gameRules){
         super(type,costPerHour,m,gameRules);
         this.productionPerDay = pp;
@@ -52,16 +61,18 @@ public class Developer extends Worker{
         this.acc += this.productionPerDay;
         this.daysWorked++;
     
+        //Mientra que la cantidad de trabajo acumulado sea menos a 1
         while (this.acc >= 1){
             try {
-            // sección critica
-                this.mutex.acquire(1);
-                this.drive.addProduct(1, type);
+                
+                this.mutex.acquire(1); // Envia a la cola al semaforo
+                this.drive.addProduct(1, type);  //Agrega el producto al drive
               
                 this.acc= acc -1;
-                if(acc < 0)
+                if(acc < 1)
                     acc=0;
-                this.mutex.release();
+                
+                this.mutex.release(); //Signal
                 
             } catch (InterruptedException ex) {
             //Logger.getLogger(Developer.class.getName()).log(Level.SEVERE, null, ex);

@@ -5,11 +5,14 @@
 package Rules;
 
 /**
- *
+ * Tiene los datos de Nintendo
  * @author Masa500
  */
 public class NintendoRules extends CompanyRules{
     
+    /**
+     * Genera los datos necesarios que tiene que ver con la compañia de Nintendo
+     */
     public NintendoRules() {
     	
     	this.levelsNeedIt = 2;
