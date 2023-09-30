@@ -7,9 +7,9 @@ package main;
 import Enums.WorkerTypeEnum;
 import Worker.Worker;
 import Worker.WorkerFactory;
-import entities.CompanyRules;
-import entities.CapcomRules;
-import entities.Drive;
+import Rules.CompanyRules;
+import Rules.CapcomRules;
+import Store.Drive;
 import java.util.concurrent.Semaphore;
 
 /**

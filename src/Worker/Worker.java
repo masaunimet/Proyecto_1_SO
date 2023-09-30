@@ -5,8 +5,8 @@
 package Worker;
 
 import Enums.WorkerTypeEnum;
-import entities.CompanyRules;
-import entities.Drive;
+import Rules.CompanyRules;
+import Store.Drive;
 import static Enums.WorkerTypeEnum.Level;
 import java.util.concurrent.Semaphore;
 

@@ -2,15 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package entities;
+package Rules;
 
 /**
  *
  * @author Masa500
  */
-public class CapcomRules extends CompanyRules{
+public class NintendoRules extends CompanyRules{
     
-    public CapcomRules() {
+    public NintendoRules() {
     	
     	this.levelsNeedIt = 2;
     	this.narrativeNeedIt = 1;

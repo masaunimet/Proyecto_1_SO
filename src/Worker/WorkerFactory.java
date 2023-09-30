@@ -11,8 +11,8 @@ import static Enums.WorkerTypeEnum.Level;
 import static Enums.WorkerTypeEnum.Narrative;
 import static Enums.WorkerTypeEnum.Sistem;
 import static Enums.WorkerTypeEnum.Sprite;
-import entities.CompanyRules;
-import entities.Drive;
+import Rules.CompanyRules;
+import Store.Drive;
 import java.util.concurrent.Semaphore;
 
 /**
