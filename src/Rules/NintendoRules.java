@@ -21,6 +21,8 @@ public class NintendoRules extends CompanyRules{
     	this.income = 400000f;
     	this.incomeDLC = 750000f;
         
+        this.gamesToGamesDLC = 4;
+        
         this.employees = 17;
         
         this.levelProductionPerDay = 0.26f;

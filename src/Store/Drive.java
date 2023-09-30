@@ -11,6 +11,7 @@ import Enums.WorkerTypeEnum;
  * @author Masa500
  */
 public class Drive {
+
     private int levels;
     private int narrative;
     private int DLCs;
@@ -18,6 +19,7 @@ public class Drive {
     private int sistems;
     
     private int games;
+    private float utility;
     
     private final int maxLevels = 20;
     private final int maxNarrative = 25;
@@ -131,5 +133,12 @@ public class Drive {
 
     public void setGames(int games) {
         this.games = games;
+    }
+    public float getUtility() {
+        return utility;
+    }
+    
+    public void setUtility(float utility) {
+        this.utility = utility;
     }
 }

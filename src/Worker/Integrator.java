@@ -5,11 +5,6 @@
 package Worker;
 
 import Enums.WorkerTypeEnum;
-import static Enums.WorkerTypeEnum.DLC;
-import static Enums.WorkerTypeEnum.Level;
-import static Enums.WorkerTypeEnum.Narrative;
-import static Enums.WorkerTypeEnum.Sistem;
-import static Enums.WorkerTypeEnum.Sprite;
 import Rules.CompanyRules;
 import Store.Drive;
 import java.util.concurrent.Semaphore;
@@ -23,11 +18,13 @@ public class Integrator extends Worker{
     
     private Drive drive;
     private boolean makingGame;
+    private int gamesToGamesDLC;
     
-    public Integrator (WorkerTypeEnum type, float costPerHour, Drive drive, Semaphore m, CompanyRules gameRules){
+    public Integrator (WorkerTypeEnum type, int gamesToGamesDLC, float costPerHour, Drive drive, Semaphore m, CompanyRules gameRules){
         super(type,costPerHour,m,gameRules);
         this.drive = drive;
         this.makingGame = false;
+        this.gamesToGamesDLC = gamesToGamesDLC;
     }
     
     @Override
@@ -50,19 +47,29 @@ public class Integrator extends Worker{
         }
     }
     
+    @Override
     public void Work(){
     // TODO Auto-generated method stub
     
         this.daysWorked++;
+        
+        boolean validation = (drive.getGames() >= gamesToGamesDLC && drive.getGames() % gamesToGamesDLC == 0)? 
+            companyRules.canMakeGameDLC(drive.getLevels(), drive.getNarrative(), drive.getSprites(), drive.getSistems(), drive.getDLCs()): 
+                companyRules.canMakeGame(drive.getLevels(), drive.getNarrative(), drive.getSprites(), drive.getSistems());
     
-	if (companyRules.canMakeGame(drive.getLevels(), drive.getNarrative(), drive.getSprites(), drive.getSistems())) {
+	if (validation) {
             
             drive.setGames(drive.getGames()+1);
             drive.setSistems(drive.getSistems() - companyRules.getSistemsNeedIt());
             drive.setSprites(drive.getSprites() - companyRules.getSpritesNeedIt());
             drive.setLevels(drive.getLevels() - companyRules.getLevelsNeedIt());
             drive.setNarrative(drive.getNarrative() - companyRules.getNarrativeNeedIt());
+            if(drive.getGames() >= gamesToGamesDLC && drive.getGames() % gamesToGamesDLC == 0)
+                drive.setDLCs(drive.getDLCs() - companyRules.getDLCsNeedIt());
+            
             makingGame = true;
 	}
+        
+        System.out.println("Juegos Hechos: "+drive.getGames());
     }
 }

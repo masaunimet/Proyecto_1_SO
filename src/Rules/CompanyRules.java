@@ -15,8 +15,11 @@ public class CompanyRules {
     protected int DLCsNeedIt;
     protected int spritesNeedIt;
     protected int sistemsNeedIt;
+    
     protected float income;
     protected float incomeDLC;
+    
+    protected int gamesToGamesDLC;
 	
     protected int employees;
 	
@@ -118,5 +121,9 @@ public class CompanyRules {
 
     public float getSistemsProductionPerDay() {
         return sistemsProductionPerDay; 
+    }
+    
+    public int getGamesToGamesDLC(){
+        return gamesToGamesDLC;
     }
 }

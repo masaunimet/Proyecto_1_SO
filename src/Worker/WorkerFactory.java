@@ -35,7 +35,7 @@ public class WorkerFactory {
 	case Level:
             return new Developer(workerType,companyRules.getLevelProductionPerDay(), companyRules.getLevelCost(), drive,mutex, companyRules);
         case Integracion:
-            return new Integrator(workerType, companyRules.getIntegratorCost(), drive,mutex, companyRules);
+            return new Integrator(workerType, companyRules.getGamesToGamesDLC(), companyRules.getIntegratorCost(), drive,mutex, companyRules);
         case Manager:
             break;
         case Director:

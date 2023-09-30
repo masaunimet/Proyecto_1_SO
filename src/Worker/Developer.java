@@ -46,6 +46,7 @@ public class Developer extends Worker{
         }
     }
 
+    @Override
     public void Work(){
     
         this.acc += this.productionPerDay;
@@ -61,30 +62,30 @@ public class Developer extends Worker{
                 if(acc < 0)
                     acc=0;
                 this.mutex.release();
-            
-                switch(type) {
-                case DLC:
-                    System.out.println("DLCs Hechos: "+this.drive.getDLCs());
-                    break;
-                case Sistem:
-                    System.out.println("Sistemas Hechos: "+this.drive.getSistems());
-                    break;
-                case Narrative:
-                    System.out.println("Narrativas Hechos: "+this.drive.getNarrative());
-                    break;
-                case Level:
-                    System.out.println("Niveles Hechos: "+this.drive.getLevels());
-                    break;
-                case Sprite:
-                    System.out.println("Sprites Hechos: "+this.drive.getSprites());
-                    break;
-                default:
-                    break;
-                }
                 
             } catch (InterruptedException ex) {
             //Logger.getLogger(Developer.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+        switch(this.type) {
+            case DLC:
+                System.out.println("DLCs Hechos: "+this.drive.getDLCs());
+                break;
+            case Sistem:
+                System.out.println("Sistemas Hechos: "+this.drive.getSistems());
+                break;
+            case Narrative:
+                System.out.println("Narrativas Hechos: "+this.drive.getNarrative());
+                break;
+            case Level:
+                System.out.println("Niveles Hechos: "+this.drive.getLevels());
+                break;
+            case Sprite:
+                System.out.println("Sprites Hechos: "+this.drive.getSprites());
+                break;
+            default:
+                break;
+            }
     }
 }
