@@ -5,9 +5,8 @@
 package main;
 
 import Enums.WorkerTypeEnum;
-import Worker.Developer;
-import Worker.Integrator;
 import Worker.Worker;
+import Worker.WorkerFactory;
 import entities.CompanyRules;
 import entities.CapcomRules;
 import entities.Drive;
@@ -28,13 +27,14 @@ public class Proyecto_1_SO {
         Semaphore mutex = new Semaphore(1);
         CompanyRules capcomRules = new CapcomRules();
         Drive drive = new Drive();
+        WorkerFactory workerFactory = new WorkerFactory();
         
-        Worker levelDesiner = new Developer(WorkerTypeEnum.Level,capcomRules.getLevelProductionPerDay(),capcomRules.getLevelCost(), drive,mutex,capcomRules);
-        Worker DLCWorker = new Developer(WorkerTypeEnum.DLC,capcomRules.getDLCsProductionPerDay(), capcomRules.getDLCCost(),drive, mutex,capcomRules);
-        Worker sistemWorker = new Developer(WorkerTypeEnum.Sistem,capcomRules.getSistemsProductionPerDay(), capcomRules.getSistemCost(), drive,mutex,capcomRules);
-        Worker graphicWorker = new Developer(WorkerTypeEnum.Sprite,capcomRules.getSpritesProductionPerDay(),capcomRules.getSpriteCost(), drive,mutex,capcomRules);
-        Worker Writer = new Developer(WorkerTypeEnum.Narrative,capcomRules.getNarrativeProductionPerDay(),capcomRules.getNarrativeCost(), drive,mutex,capcomRules);
-        Worker Integrator = new Integrator(WorkerTypeEnum.Integracion,capcomRules.getIntegratorCost(), drive,mutex,capcomRules);
+        Worker levelDesiner = workerFactory.makeWorker(WorkerTypeEnum.Level, drive, mutex, capcomRules);
+        Worker DLCWorker = workerFactory.makeWorker(WorkerTypeEnum.DLC, drive, mutex, capcomRules);
+        Worker sistemWorker = workerFactory.makeWorker(WorkerTypeEnum.Sistem, drive, mutex, capcomRules);
+        Worker graphicWorker = workerFactory.makeWorker(WorkerTypeEnum.Sprite, drive, mutex, capcomRules);
+        Worker Writer = workerFactory.makeWorker(WorkerTypeEnum.Narrative, drive, mutex, capcomRules);
+        Worker Integrator = workerFactory.makeWorker(WorkerTypeEnum.Integracion, drive, mutex, capcomRules);
         
         levelDesiner.start();
         DLCWorker.start();

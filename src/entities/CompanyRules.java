@@ -43,6 +43,7 @@ public class CompanyRules {
     	return (niveles >= this.levelsNeedIt && narrativa >= this.narrativeNeedIt && sprites >= this.spritesNeedIt && logicas >= this.sistemsNeedIt && DLCs >= this.DLCsNeedIt);
     }
 
+    //Getters
     public float getIncome() {
         return income;
     }
