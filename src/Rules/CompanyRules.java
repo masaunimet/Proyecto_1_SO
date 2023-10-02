@@ -45,29 +45,29 @@ public class CompanyRules {
     
     /**
      * Identifica si un juego se puede hacer con los elementos almacenados en el Drive
-     * @param niveles int - Numero de niveles disponibles
-     * @param narrativa int - Numero de guiones disponibles
+     * @param levels int - Numero de niveles disponibles
+     * @param narrative int - Numero de guiones disponibles
      * @param sprites int - Numero de sprites disponibles
-     * @param logicas int - Numero de sistemas disponibles
+     * @param sistems int - Numero de sistemas disponibles
      * @return boolean - (true) Si se puede elaborar el juego y (false) si no
      */
-    public boolean canMakeGame(int niveles, int narrativa, int sprites, int logicas) {
+    public boolean canMakeGame(int levels, int narrative, int sprites, int sistems) {
     	
-    	return (niveles >= this.levelsNeedIt && narrativa >= this.narrativeNeedIt && sprites >= this.spritesNeedIt && logicas >= this.sistemsNeedIt);
+    	return (levels >= this.levelsNeedIt && narrative >= this.narrativeNeedIt && sprites >= this.spritesNeedIt && sistems >= this.sistemsNeedIt);
     }
     
     /**
      * Identifica si un juego se puede hacer con los elementos almacenados en el Drive
-     * @param niveles int - Numero de niveles disponibles
-     * @param narrativa int - Numero de guiones disponibles
+     * @param levels int - Numero de niveles disponibles
+     * @param narrative int - Numero de guiones disponibles
      * @param sprites int - Numero de sprites disponibles
-     * @param logicas int - Numero de sistemas disponibles
+     * @param sistems int - Numero de sistemas disponibles
      * @param DLCs int - Numero de DLCs disponibles
      * @return boolean - (true) Si se puede elaborar el juego y (false) si no
      */
-    public boolean canMakeGameDLC(int niveles, int narrativa, int sprites, int logicas, int DLCs) {
+    public boolean canMakeGameDLC(int levels, int narrative, int sprites, int sistems, int DLCs) {
     	
-    	return (niveles >= this.levelsNeedIt && narrativa >= this.narrativeNeedIt && sprites >= this.spritesNeedIt && logicas >= this.sistemsNeedIt && DLCs >= this.DLCsNeedIt);
+    	return (levels >= this.levelsNeedIt && narrative >= this.narrativeNeedIt && sprites >= this.spritesNeedIt && sistems >= this.sistemsNeedIt && DLCs >= this.DLCsNeedIt);
     }
 
     //Getters

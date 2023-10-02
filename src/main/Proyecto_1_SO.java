@@ -34,7 +34,7 @@ public class Proyecto_1_SO {
         Worker sistemWorker = workerFactory.makeWorker(WorkerTypeEnum.Sistem, drive, mutex, capcomRules);
         Worker graphicWorker = workerFactory.makeWorker(WorkerTypeEnum.Sprite, drive, mutex, capcomRules);
         Worker Writer = workerFactory.makeWorker(WorkerTypeEnum.Narrative, drive, mutex, capcomRules);
-        Worker Integrator = workerFactory.makeWorker(WorkerTypeEnum.Integracion, drive, mutex, capcomRules);
+        Worker Integrator = workerFactory.makeWorker(WorkerTypeEnum.Integrator, drive, mutex, capcomRules);
         
         levelDesiner.start();
         DLCWorker.start();

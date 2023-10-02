@@ -20,7 +20,7 @@ public enum WorkerTypeEnum {
     /**El que realiza los DLCs*/
     DLC(4),
     /**El que agarra todos los elemntos y genera un juego*/
-    Integracion(5),
+    Integrator(5),
     /**Es el que registra el paso de los días*/
     Manager(6),
     /**Vende los juegos y revisa la DEADLINE*/

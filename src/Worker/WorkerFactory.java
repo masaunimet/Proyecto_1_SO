@@ -6,7 +6,6 @@ package Worker;
 
 import Enums.WorkerTypeEnum;
 import static Enums.WorkerTypeEnum.DLC;
-import static Enums.WorkerTypeEnum.Integracion;
 import static Enums.WorkerTypeEnum.Level;
 import static Enums.WorkerTypeEnum.Narrative;
 import static Enums.WorkerTypeEnum.Sistem;
@@ -14,6 +13,7 @@ import static Enums.WorkerTypeEnum.Sprite;
 import Rules.CompanyRules;
 import Store.Drive;
 import java.util.concurrent.Semaphore;
+import static Enums.WorkerTypeEnum.Integrator;
 
 /**
  * Patron de diseño Factory para la creacion de Workers
@@ -42,7 +42,7 @@ public class WorkerFactory {
             return new Developer(workerType,companyRules.getNarrativeProductionPerDay(), companyRules.getNarrativeCost(), drive,mutex, companyRules);
 	case Level:
             return new Developer(workerType,companyRules.getLevelProductionPerDay(), companyRules.getLevelCost(), drive,mutex, companyRules);
-        case Integracion:
+        case Integrator:
             return new Integrator(workerType, companyRules.getGamesToGamesDLC(), companyRules.getIntegratorCost(), drive,mutex, companyRules);
         case Manager:
             break;

@@ -23,13 +23,13 @@ public class Integrator extends Worker{
      * Realiza el Constructor de Worker y luego las variables de su clase
      * @param type WorkerTypeEnum - Tipo de trabajo
      * @param gamesToGamesDLC int - Rango de dias para un juego con DLCs
-     * @param costPerHour float - Costo por hora de trabajo
+     * @param cph float - Costo por hora de trabajo
      * @param drive Drive - almacen donde albergar los elementos creados
      * @param m Semaphore - Semaforo
      * @param gameRules CompanyRules - datos de la compañia asociada
      */
-    public Integrator (WorkerTypeEnum type, int gamesToGamesDLC, float costPerHour, Drive drive, Semaphore m, CompanyRules gameRules){
-        super(type,costPerHour,m,gameRules);
+    public Integrator (WorkerTypeEnum type, int gamesToGamesDLC, float cph, Drive drive, Semaphore m, CompanyRules gameRules){
+        super(type,cph,m,gameRules);
         this.drive = drive;
         this.makingGame = false;
         this.gamesToGamesDLC = gamesToGamesDLC;

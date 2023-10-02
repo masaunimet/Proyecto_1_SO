@@ -26,13 +26,13 @@ public abstract class Worker extends Thread{
     /**
      * Constructor Base para un trabajador
      * @param type WorkerTypeEnum - Tipo de trabajo
-     * @param costPerHour float - Costo por hora de trabajo
+     * @param cph float - Costo por hora de trabajo
      * @param m Semaphore - Semaforo
      * @param gameRules CompanyRules - datos de la compañia asociada
      */
-    public Worker (WorkerTypeEnum type,  float costPerHour,  Semaphore m, CompanyRules gameRules){
+    public Worker (WorkerTypeEnum type,  float cph,  Semaphore m, CompanyRules gameRules){
         this.type = type;
-        this.costPerHour = costPerHour;
+        this.costPerHour = cph;
         this.mutex = m;
         this.companyRules = gameRules;
     }

@@ -34,18 +34,18 @@ public class Drive {
 
     /**
      * Constructor que setea los elementos para un juego
-     * @param niveles int - Numero de niveles
+     * @param levels int - Numero de niveles
      * @param narrative int - Numero de guiones
      * @param DLCs int - Numero de DLCs
      * @param sprites int - Numero de sprites
-     * @param logicas int - Numero de sistemas de juego
+     * @param sistems int - Numero de sistemas de juego
      */
-    public Drive(int niveles, int narrative,int DLCs, int sprites, int logicas) {
-        this.levels = niveles;
+    public Drive(int levels, int narrative,int DLCs, int sprites, int sistems) {
+        this.levels = levels;
         this.narrative = narrative;
         this.DLCs = DLCs;
         this.sprites = sprites;
-        this.sistems = logicas;
+        this.sistems = sistems;
     }
     
     /**
