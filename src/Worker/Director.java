@@ -29,8 +29,20 @@ public class Director extends Worker {
             try {
                 drive.getDaysMutex().acquire();
                 if (drive.getDaysUntilRelease() == 0){
+                    drive.getDaysMutex().release();
+                    //Aqui estoy diciendo que si ya es el dia del lanzamiennto, el director aumenta la utilidad de la empresa de manera de que es la utilidad acutal mas la vetna de los dlcs mas la venta de los juegos regulares
                     drive.getConsumerMutex().acquire();
-                    drive.setUtility(drive.getUtility() + drive.getGames()*this.companyRules.);
+                    drive.setUtility(drive.getUtility() + drive.getGames()*this.companyRules.getIncome() + drive.getGames()*companyRules.getIncomeDLC());
+                    drive.setGames(0);
+                    drive.setGamesWithDlc(0);
+                    drive.getConsumerMutex().release();
+                
+                } else {
+                    drive.getDaysMutex().release();
+                    
+                    //El director escoge una hora del día aleatoriamente
+                    
+                   
                     
                 }
             } catch (Exception e) {

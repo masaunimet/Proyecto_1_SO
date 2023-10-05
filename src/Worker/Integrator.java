@@ -38,6 +38,15 @@ public class Integrator extends Worker {
         this.makingGame = false;
         this.gamesToGamesDLC = gamesToGamesDLC;
     }
+    
+    /*
+    observaciones dde integrator:
+    
+    1. ¿Cuando valida que el juego pueda ser creado?
+    2. No estamos creando los DLCs en unna carpeta especial. Es necesario
+    3. El juego se agrega realmente una vez se termina de crear el juego, ahora se crea y el tipo duerme. Deberia de ser al revés creo.
+    
+    */
 
     @Override
     public void run() {
@@ -86,6 +95,7 @@ public class Integrator extends Worker {
                 drive.setNarrative(drive.getNarrative() - companyRules.getNarrativeNeedIt());
                 if (drive.getGames() >= gamesToGamesDLC && drive.getGames() % gamesToGamesDLC == 0) {
                     drive.setDLCs(drive.getDLCs() - companyRules.getDLCsNeedIt());
+                    
                 }
 
                 //TODO: Preguntar a Toni si esto no va despues de que se produzca el juego (en A1)
