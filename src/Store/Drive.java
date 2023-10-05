@@ -5,6 +5,7 @@
 package Store;
 
 import Enums.WorkerTypeEnum;
+import java.util.concurrent.Semaphore;
 
 /**
  * Es el que almacena los elementos necesarios para crear un juego, la cantidad de juegos,
@@ -22,6 +23,8 @@ public class Drive {
     
     //juegos
     private int games;
+    private int gamesWithDlc;
+    
     //gastos e ingresos
     private float utility;
     
@@ -32,6 +35,15 @@ public class Drive {
     private final int maxSprites = 55;
     private final int maxSistems = 35;
 
+    //Semáforos de drive
+    private Semaphore producerMutex;
+    private Semaphore consumerMutex;
+    
+    //Days until release
+    private int daysUntilRelease;
+    private Semaphore daysMutex;
+    
+    
     /**
      * Constructor que setea los elementos para un juego
      * @param levels int - Numero de niveles
@@ -161,5 +173,75 @@ public class Drive {
     
     public void setUtility(float utility) {
         this.utility = utility;
+    }
+
+    /**
+     * @return the producerMutex
+     */
+    public Semaphore getProducerMutex() {
+        return producerMutex;
+    }
+
+    /**
+     * @param producerMutex the producerMutex to set
+     */
+    public void setProducerMutex(Semaphore producerMutex) {
+        this.producerMutex = producerMutex;
+    }
+
+    /**
+     * @return the consumerMutex
+     */
+    public Semaphore getConsumerMutex() {
+        return consumerMutex;
+    }
+
+    /**
+     * @param consumerMutex the consumerMutex to set
+     */
+    public void setConsumerMutex(Semaphore consumerMutex) {
+        this.consumerMutex = consumerMutex;
+    }
+
+    /**
+     * @return the daysUntilRelease
+     */
+    public int getDaysUntilRelease() {
+        return daysUntilRelease;
+    }
+
+    /**
+     * @param daysUntilRelease the daysUntilRelease to set
+     */
+    public void setDaysUntilRelease(int daysUntilRelease) {
+        this.daysUntilRelease = daysUntilRelease;
+    }
+
+    /**
+     * @return the daysMutex
+     */
+    public Semaphore getDaysMutex() {
+        return daysMutex;
+    }
+
+    /**
+     * @param daysMutex the daysMutex to set
+     */
+    public void setDaysMutex(Semaphore daysMutex) {
+        this.daysMutex = daysMutex;
+    }
+
+    /**
+     * @return the gamesWithDlc
+     */
+    public int getGamesWithDlc() {
+        return gamesWithDlc;
+    }
+
+    /**
+     * @param gamesWithDlc the gamesWithDlc to set
+     */
+    public void setGamesWithDlc(int gamesWithDlc) {
+        this.gamesWithDlc = gamesWithDlc;
     }
 }
