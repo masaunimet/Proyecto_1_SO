@@ -15,7 +15,7 @@ import java.util.concurrent.Semaphore;
 public class Drive {
 
     //elementos para juegos
-    private int levels;
+        private int levels;
     private int narrative;
     private int DLCs;
     private int sprites;
@@ -24,7 +24,7 @@ public class Drive {
     //juegos
     private int games;
     private int gamesWithDlc;
-    
+        
     //gastos e ingresos
     private float utility;
     
@@ -43,6 +43,9 @@ public class Drive {
     private int daysUntilRelease;
     private Semaphore daysMutex;
     
+    
+    //Status del director: 0 = vigilando, 1 = trabajando
+    private int directorStatus = 0;
     
     /**
      * Constructor que setea los elementos para un juego
@@ -243,5 +246,19 @@ public class Drive {
      */
     public void setGamesWithDlc(int gamesWithDlc) {
         this.gamesWithDlc = gamesWithDlc;
+    }
+
+    /**
+     * @return the directorStatus
+     */
+    public int getDirectorStatus() {
+        return directorStatus;
+    }
+
+    /**
+     * @param directorStatus the directorStatus to set
+     */
+    public void setDirectorStatus(int directorStatus) {
+        this.directorStatus = directorStatus;
     }
 }

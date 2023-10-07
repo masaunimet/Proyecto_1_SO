@@ -8,7 +8,9 @@ package Worker;
 import Enums.WorkerTypeEnum;
 import Rules.CompanyRules;
 import Store.Drive;
+import java.util.Random;
 import java.util.concurrent.Semaphore;
+import main.Global;
 
 /**
  *
@@ -40,7 +42,26 @@ public class Director extends Worker {
                 } else {
                     drive.getDaysMutex().release();
                     
-                    //El director escoge una hora del día aleatoriamente
+                    //El director escoge una hora del día aleatoriamente si llega esa hora entonces el director cambiara su estado a revisando
+                    Random r = new Random();
+                    
+                    double oneHour = Global.daysDuartion / 24;
+                    double checkingHour =  r.nextInt(24) * oneHour;
+                    
+                 
+                    double contador = 0;
+                    while (contador < Global.daysDuartion){
+                        if (contador == checkingHour){
+                            drive.setDirectorStatus(0);
+                            
+                            //Ya aqui empiezan a pasar los minutos 
+                            double oneMinute = oneHour / 60;
+                            sleep(Math.round(25 * oneMinute));
+                            drive.setDirectorStatus(1);
+                        }
+                        
+                        contador += oneHour;
+                    }
                     
                    
                     

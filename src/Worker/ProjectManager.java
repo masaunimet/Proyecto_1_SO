@@ -40,7 +40,13 @@ public class ProjectManager extends Worker {
             // 16 horas al dia
             while (counter < 16 ) {
                 
-                    workingStatus = 0;    
+                    workingStatus = 0;
+                    
+                    //Si el director lo esta vigilando entonces
+                    if (drive.getDirectorStatus() == 0){
+                        //TODO: poner lo que va a hacer 
+                    }
+                    
                     sleep(Math.round(halfHour));
 
                     workingStatus = 1;
