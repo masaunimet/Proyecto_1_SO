@@ -56,23 +56,26 @@ public class List {
             this.pLast.setpNext(pNew);
             this.pLast = pNew;
         }
+        pNew.getData().start();
         this.size++;
 
     }
 
     /*
-    Quitar de la lista al ultimo elemento
+    Quitar de la lista al ultimo elemento, y retorna un booleano para decir que lo puedo eliminar
      */
-    public void removeLast(Drive drive) {
+    public boolean removeLast(Drive drive) {
         try {
             drive.getProducerMutex().acquire();
             drive.getConsumerMutex().acquire();
             if (this.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No se puede quitar mas trabajadores de este tipo debido a que no hay");
+                return false;
             } else {
                 if (this.size == 1) {
                     this.pFirst.getData().interrupt();
                     this.empty();
+                    return true;
                 } else {
                     Node pAux = this.pFirst;
                     for (int i = 0; i < this.size; i++) {
@@ -80,7 +83,7 @@ public class List {
                             this.pLast.getData().interrupt();
                             this.pLast = pAux;
                             this.size--;
-                            break;
+                            return true;
                         }
                         pAux = pAux.getpNext();
                     }
@@ -91,7 +94,7 @@ public class List {
         } catch (InterruptedException ex) {
             Logger.getLogger(List.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        return false;
     }
 
     public Node getpFirst() {

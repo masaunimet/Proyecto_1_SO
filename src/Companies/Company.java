@@ -12,6 +12,7 @@ import Store.Drive;
 import Worker.Developer;
 import Worker.Worker;
 import Worker.WorkerFactory;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,6 +37,22 @@ public class Company {
     private int amountOfEmployees;
     private int vacancy;
 
+    /**
+     * Realiza el Constructor de Company
+     *
+     * @param numberOfDeveloper int - numero de developers que se crean por
+     * default
+     * @param numberOfDesigners int - numero de diseñadores que se crean por
+     * default
+     * @param numberOfArtist int - numero de artistas que se crean por default
+     * @param numberOfProgrammers int - numero de programadores que se crean por
+     * default
+     * @param numberOfDLCS int - numero de DLCS que se crean por default
+     * @param numberOfIntegrators int - numero de integradorees que se crean por
+     * default
+     * @param drive Drive - Es el drive de la compañia
+     * @param rules CompanyRules - datos de la compañia asociada
+     */
     public Company(int numberOfDeveloper, int numberOfDesigners, int numberOfArtist, int numberOfProgrammers, int numberOfDLCS, int numberOfIntegrators, Drive drive, CompanyRules rules) {
         WorkerFactory workerFactory = new WorkerFactory();
 
@@ -79,7 +96,7 @@ public class Company {
             Worker integratorWorker = workerFactory.makeWorker(WorkerTypeEnum.Integrator, drive, drive.getProducerMutex(), rules);
             employees[5].addToList(integratorWorker);
         }
-        
+
         //Creo al PM
         Worker PM = workerFactory.makeWorker(WorkerTypeEnum.Manager, drive, drive.getProducerMutex(), rules);
         employees[6].addToList(PM);
@@ -90,9 +107,71 @@ public class Company {
 
         this.amountOfEmployees = numberOfDeveloper + numberOfDesigners + numberOfArtist + numberOfProgrammers + numberOfDLCS + numberOfIntegrators;
         this.vacancy = rules.getEmployees() - amountOfEmployees;
-        
+
         this.drive = drive;
         this.rules = rules;
+    }
+
+    /**
+     * Despide a un empleado
+     *
+     * @param type int - es el tipo de empleado que se va a botar
+     */
+    public void fireEmployee(int type) {
+        if (amountOfEmployees > 0) {
+            boolean eliminado = employees[type].removeLast(drive);
+            if (eliminado) {
+                amountOfEmployees--;
+                vacancy++;
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay más empleados por botar");
+        }
+    }
+
+    /**
+     * Contrata a un empleado
+     *
+     * @param type int - es el tipo de empleado que se va a botar
+     */
+    public void hireEmployee(int type) {
+        if (vacancy > 0) {
+            WorkerFactory workerFactory = new WorkerFactory();
+            switch (type) {
+
+                case 0:
+                    Worker narrativeWorker = workerFactory.makeWorker(WorkerTypeEnum.Narrative, drive, drive.getProducerMutex(), rules);
+                    employees[0].addToList(narrativeWorker);
+                    break;
+                case 1:
+                    Worker designerWorker = workerFactory.makeWorker(WorkerTypeEnum.Level, drive, drive.getProducerMutex(), rules);
+                    employees[1].addToList(designerWorker);
+                    break;
+                case 2:
+                    Worker artistWorker = workerFactory.makeWorker(WorkerTypeEnum.Sprite, drive, drive.getProducerMutex(), rules);
+                    employees[2].addToList(artistWorker);
+                    break;
+                case 3:
+                    Worker programerWorker = workerFactory.makeWorker(WorkerTypeEnum.Sistem, drive, drive.getProducerMutex(), rules);
+                    employees[3].addToList(programerWorker);
+                    break;
+
+                case 4:
+                    Worker DLCWorker = workerFactory.makeWorker(WorkerTypeEnum.DLC, drive, drive.getProducerMutex(), rules);
+                    employees[type].addToList(DLCWorker);
+                    break;
+
+                case 5:
+                    Worker integratorWorker = workerFactory.makeWorker(WorkerTypeEnum.Integrator, drive, drive.getProducerMutex(), rules);
+                    employees[5].addToList(integratorWorker);
+                    break;
+            }
+            vacancy--;
+            amountOfEmployees++;
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay plata para mas personal.");
+        }
     }
 
     public CompanyRules getRules() {
@@ -117,6 +196,22 @@ public class Company {
 
     public void setEmployees(List[] employees) {
         this.employees = employees;
+    }
+
+    public int getAmountOfEmployees() {
+        return amountOfEmployees;
+    }
+
+    public void setAmountOfEmployees(int amountOfEmployees) {
+        this.amountOfEmployees = amountOfEmployees;
+    }
+
+    public int getVacancy() {
+        return vacancy;
+    }
+
+    public void setVacancy(int vacancy) {
+        this.vacancy = vacancy;
     }
 
 }
