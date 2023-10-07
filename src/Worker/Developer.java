@@ -33,7 +33,7 @@ public class Developer extends Worker{
      * @param m Semaphore - Semaforo
      * @param gameRules CompanyRules - datos de la compañia asociada
      */
-    public Developer (WorkerTypeEnum type, float pp, float cph, Drive drive, Semaphore m, CompanyRules gameRules){
+    public Developer (WorkerTypeEnum type, float pp, float cph, Drive drive, Semaphore m,CompanyRules gameRules){
         super(type,cph,m,gameRules);
         this.productionPerDay = pp;
         this.drive = drive;

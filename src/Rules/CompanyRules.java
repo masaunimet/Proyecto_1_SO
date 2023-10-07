@@ -25,7 +25,7 @@ public class CompanyRules {
     //Intervalo de tiempo(dias) para un juego con DLC(s)
     protected int gamesToGamesDLC;
 
-    //Numero de empleados
+    //Numero máximo de empleados
     protected int employees;
 
     //Costo por hora por el puesto de trabajo
@@ -99,7 +99,7 @@ public class CompanyRules {
         return sistemsNeedIt;
     }
 
-    public float getEmployees() {
+    public int getEmployees() {
         return employees; 
     }
 
