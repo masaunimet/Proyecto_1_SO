@@ -18,8 +18,7 @@ public class ProjectManager extends Worker {
 
     private Drive drive;
     
-    // 0 = trabajando, 1 = jugando
-    private int workingStatus;
+
     
         
     public ProjectManager(WorkerTypeEnum type, float cph, Semaphore m, CompanyRules gameRules, Drive drive) {
@@ -40,21 +39,25 @@ public class ProjectManager extends Worker {
             // 16 horas al dia
             while (counter < 16 ) {
                 
-                    workingStatus = 0;
+                    drive.setPmStatus(0);
                     
                     //Si el director lo esta vigilando entonces
                     if (drive.getDirectorStatus() == 0){
                         //TODO: poner lo que va a hacer 
+                        
+                        drive.setFaltas(drive.getFaltas() + 1);
+                        drive.setSalaryDiscount(drive.getSalaryDiscount() + 50);
+                        
                     }
                     
                     sleep(Math.round(halfHour));
 
-                    workingStatus = 1;
+                    drive.setPmStatus(1);
                     sleep(Math.round(halfHour));
                     counter++;
                 }
             
-            workingStatus = 0;
+            drive.setPmStatus(0);
             
             
             sleep(Math.round(halfHour*16));

@@ -12,7 +12,7 @@ package main;
 public class Global {
     
     
-    public static float daysDuartion = 1000f;
+    public static float daysDuartion = 5000f;
     
 
   

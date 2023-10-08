@@ -17,8 +17,8 @@ import java.util.concurrent.Semaphore;
 public abstract class Worker extends Thread{
     
     protected WorkerTypeEnum type;
-    protected int dayDuration = 1000;
-    protected int daysWorked=0;
+    protected int dayDuration = 5000;
+    protected int daysWorked = 0;
     protected float costPerHour;
     protected Semaphore mutex;
     protected CompanyRules companyRules;

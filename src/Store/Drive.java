@@ -36,16 +36,21 @@ public class Drive {
     private final int maxSistems = 35;
 
     //Semáforos de drive
-    private Semaphore producerMutex;
-    private Semaphore consumerMutex;
+    private Semaphore producerMutex = new Semaphore(1);
+    private Semaphore consumerMutex = new Semaphore(1);
     
     //Days until release
-    private int daysUntilRelease;
-    private Semaphore daysMutex;
+    private int daysUntilRelease = 15;
+    private Semaphore daysMutex = new Semaphore(1);
     
     
     //Status del director: 0 = vigilando, 1 = trabajando
     private int directorStatus = 0;
+    
+    //Status del PM: 0  = trabajando, 1 = viendo streams
+    private int pmStatus = 0;
+    private int faltas = 0;
+    private int salaryDiscount = 0;
     
     /**
      * Constructor que setea los elementos para un juego
@@ -260,5 +265,47 @@ public class Drive {
      */
     public void setDirectorStatus(int directorStatus) {
         this.directorStatus = directorStatus;
+    }
+
+    /**
+     * @return the pmStatus
+     */
+    public int getPmStatus() {
+        return pmStatus;
+    }
+
+    /**
+     * @param pmStatus the pmStatus to set
+     */
+    public void setPmStatus(int pmStatus) {
+        this.pmStatus = pmStatus;
+    }
+
+    /**
+     * @return the faltas
+     */
+    public int getFaltas() {
+        return faltas;
+    }
+
+    /**
+     * @param faltas the faltas to set
+     */
+    public void setFaltas(int faltas) {
+        this.faltas = faltas;
+    }
+
+    /**
+     * @return the salaryDiscount
+     */
+    public int getSalaryDiscount() {
+        return salaryDiscount;
+    }
+
+    /**
+     * @param salaryDiscount the salaryDiscount to set
+     */
+    public void setSalaryDiscount(int salaryDiscount) {
+        this.salaryDiscount = salaryDiscount;
     }
 }

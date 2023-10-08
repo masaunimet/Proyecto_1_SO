@@ -32,7 +32,7 @@ public class Company {
     employees[6] => PM
     employees[7] => Director
      */
-    private List[] employees = new List[7];
+    private List[] employees = new List[8];
     private int amountOfEmployees;
     private int vacancy;
 
@@ -101,7 +101,7 @@ public class Company {
         employees[6].addToList(PM);
 
         //Creo al Director
-        Worker director = workerFactory.makeWorker(WorkerTypeEnum.Manager, drive, drive.getProducerMutex(), rules);
+        Worker director = workerFactory.makeWorker(WorkerTypeEnum.Director, drive, drive.getProducerMutex(), rules);
         employees[7].addToList(director);
 
         this.amountOfEmployees = numberOfDeveloper + numberOfDesigners + numberOfArtist + numberOfProgrammers + numberOfDLCS + numberOfIntegrators;

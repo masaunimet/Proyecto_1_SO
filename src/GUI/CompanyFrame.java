@@ -21,6 +21,32 @@ public class CompanyFrame extends javax.swing.JFrame {
     public CompanyFrame(Company company) {
         initComponents();
         this.company = company;
+        
+        //Decir los maximos y minimos de cada progress bar
+        //Narrative
+        guionProgressBar.setMinimum(0);
+        guionProgressBar.setMaximum(company.getDrive().getMaxNarrative());
+
+        //Niveles
+        levelsProgressBar.setMinimum(0);
+        levelsProgressBar.setMaximum(company.getDrive().getMaxLevels());
+
+        //DLc
+        DLCProgressBar.setMinimum(0);
+        DLCProgressBar.setMaximum(company.getDrive().getMaxDLCs());
+
+        
+        //Sprites
+        spritesProgressBar.setMinimum(0);
+        spritesProgressBar.setMaximum(company.getDrive().getMaxSprites());
+
+        //Sistemas
+        siistemasProgressBar.setMinimum(0);
+        siistemasProgressBar.setMaximum(company.getDrive().getMaxSistems());
+
+        
+        
+        
     }
 
     /**
@@ -92,7 +118,7 @@ public class CompanyFrame extends javax.swing.JFrame {
         vovlerButton = new javax.swing.JButton();
         verGraficoButton = new javax.swing.JButton();
         gananciasLabel3 = new javax.swing.JLabel();
-        gananciasEmpresaLabel1 = new javax.swing.JLabel();
+        catnidadDeTrabajadores = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -152,7 +178,7 @@ public class CompanyFrame extends javax.swing.JFrame {
 
         cantIntegradoresLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cantIntegradoresLabel.setText("0");
-        getContentPane().add(cantIntegradoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 440, 10, -1));
+        getContentPane().add(cantIntegradoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 440, 20, -1));
 
         masDLCButton.setText("+");
         getContentPane().add(masDLCButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 390, 40, -1));
@@ -162,7 +188,7 @@ public class CompanyFrame extends javax.swing.JFrame {
 
         cantDLCLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cantDLCLabel.setText("0");
-        getContentPane().add(cantDLCLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 400, 10, -1));
+        getContentPane().add(cantDLCLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 400, 20, -1));
 
         masProgramadoresButton.setText("+");
         getContentPane().add(masProgramadoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 350, 40, -1));
@@ -172,7 +198,7 @@ public class CompanyFrame extends javax.swing.JFrame {
 
         cantProgramadoresLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cantProgramadoresLabel.setText("0");
-        getContentPane().add(cantProgramadoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 360, 10, -1));
+        getContentPane().add(cantProgramadoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 360, 20, -1));
 
         masSpritesButton.setText("+");
         getContentPane().add(masSpritesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 310, 40, -1));
@@ -182,7 +208,7 @@ public class CompanyFrame extends javax.swing.JFrame {
 
         cantSpritesLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cantSpritesLabel.setText("0");
-        getContentPane().add(cantSpritesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 320, 10, -1));
+        getContentPane().add(cantSpritesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 320, 20, -1));
 
         masDisenadoresButton.setText("+");
         getContentPane().add(masDisenadoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 270, 40, -1));
@@ -192,7 +218,7 @@ public class CompanyFrame extends javax.swing.JFrame {
 
         cantDisenadoresLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cantDisenadoresLabel.setText("0");
-        getContentPane().add(cantDisenadoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 280, 10, -1));
+        getContentPane().add(cantDisenadoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 280, 20, -1));
 
         masDesarrolladoresButton.setText("+");
         getContentPane().add(masDesarrolladoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 230, 40, -1));
@@ -207,7 +233,7 @@ public class CompanyFrame extends javax.swing.JFrame {
 
         cantDesarroladoresLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cantDesarroladoresLabel.setText("0");
-        getContentPane().add(cantDesarroladoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 10, -1));
+        getContentPane().add(cantDesarroladoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 20, -1));
 
         utilidadEmpresaLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         utilidadEmpresaLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -325,10 +351,10 @@ public class CompanyFrame extends javax.swing.JFrame {
         gananciasLabel3.setText("Trabajadores disponibles:");
         getContentPane().add(gananciasLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 180, 30));
 
-        gananciasEmpresaLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        gananciasEmpresaLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        gananciasEmpresaLabel1.setText("0");
-        getContentPane().add(gananciasEmpresaLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 40, 30));
+        catnidadDeTrabajadores.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        catnidadDeTrabajadores.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        catnidadDeTrabajadores.setText("0");
+        getContentPane().add(catnidadDeTrabajadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 190, 50, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -347,6 +373,7 @@ public class CompanyFrame extends javax.swing.JFrame {
     private javax.swing.JLabel cantIntegradoresLabel;
     private javax.swing.JLabel cantProgramadoresLabel;
     private javax.swing.JLabel cantSpritesLabel;
+    private javax.swing.JLabel catnidadDeTrabajadores;
     private javax.swing.JLabel companyLogo;
     private javax.swing.JLabel costosDirectorLabel;
     private javax.swing.JLabel costosEmpresaLabel;
@@ -361,7 +388,6 @@ public class CompanyFrame extends javax.swing.JFrame {
     private javax.swing.JLabel dlcsLabel;
     private javax.swing.JLabel faltasLabel;
     private javax.swing.JLabel gananciasEmpresaLabel;
-    private javax.swing.JLabel gananciasEmpresaLabel1;
     private javax.swing.JLabel gananciasLabel;
     private javax.swing.JLabel gananciasLabel1;
     private javax.swing.JLabel gananciasLabel2;
@@ -402,4 +428,179 @@ public class CompanyFrame extends javax.swing.JFrame {
     private javax.swing.JButton verGraficoButton;
     private javax.swing.JButton vovlerButton;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the cantDLCLabel
+     */
+    public javax.swing.JLabel getCantDLCLabel() {
+        return cantDLCLabel;
+    }
+
+    /**
+     * @return the cantDesarroladoresLabel
+     */
+    public javax.swing.JLabel getCantDesarroladoresLabel() {
+        return cantDesarroladoresLabel;
+    }
+
+    /**
+     * @return the cantDisenadoresLabel
+     */
+    public javax.swing.JLabel getCantDisenadoresLabel() {
+        return cantDisenadoresLabel;
+    }
+
+    /**
+     * @return the cantIntegradoresLabel
+     */
+    public javax.swing.JLabel getCantIntegradoresLabel() {
+        return cantIntegradoresLabel;
+    }
+
+    /**
+     * @return the cantProgramadoresLabel
+     */
+    public javax.swing.JLabel getCantProgramadoresLabel() {
+        return cantProgramadoresLabel;
+    }
+
+    /**
+     * @return the cantSpritesLabel
+     */
+    public javax.swing.JLabel getCantSpritesLabel() {
+        return cantSpritesLabel;
+    }
+
+    /**
+     * @return the DLCProgressBar
+     */
+    public javax.swing.JProgressBar getDLCProgressBar() {
+        return DLCProgressBar;
+    }
+
+    /**
+     * @return the catnidadDeTrabajadores
+     */
+    public javax.swing.JLabel getCatnidadDeTrabajadores() {
+        return catnidadDeTrabajadores;
+    }
+
+    /**
+     * @return the costosEmpresaLabel
+     */
+    public javax.swing.JLabel getCostosEmpresaLabel() {
+        return costosEmpresaLabel;
+    }
+
+    /**
+     * @return the gananciasEmpresaLabel
+     */
+    public javax.swing.JLabel getGananciasEmpresaLabel() {
+        return gananciasEmpresaLabel;
+    }
+
+    /**
+     * @return the guionProgressBar
+     */
+    public javax.swing.JProgressBar getGuionProgressBar() {
+        return guionProgressBar;
+    }
+
+    /**
+     * @return the levelsProgressBar
+     */
+    public javax.swing.JProgressBar getLevelsProgressBar() {
+        return levelsProgressBar;
+    }
+
+    /**
+     * @return the siistemasProgressBar
+     */
+    public javax.swing.JProgressBar getSiistemasProgressBar() {
+        return siistemasProgressBar;
+    }
+
+    /**
+     * @return the spritesProgressBar
+     */
+    public javax.swing.JProgressBar getSpritesProgressBar() {
+        return spritesProgressBar;
+    }
+
+    /**
+     * @return the utilidadEmpresaLabel
+     */
+    public javax.swing.JLabel getUtilidadEmpresaLabel() {
+        return utilidadEmpresaLabel;
+    }
+
+    /**
+     * @return the costosDirectorLabel
+     */
+    public javax.swing.JLabel getCostosDirectorLabel() {
+        return costosDirectorLabel;
+    }
+
+    /**
+     * @return the costosPMLabel
+     */
+    public javax.swing.JLabel getCostosPMLabel() {
+        return costosPMLabel;
+    }
+
+    /**
+     * @return the dlcCostosLabel
+     */
+    public javax.swing.JLabel getDlcCostosLabel() {
+        return dlcCostosLabel;
+    }
+
+    /**
+     * @return the faltasLabel
+     */
+    public javax.swing.JLabel getFaltasLabel() {
+        return faltasLabel;
+    }
+
+    /**
+     * @return the guionesCostosLabel
+     */
+    public javax.swing.JLabel getGuionesCostosLabel() {
+        return guionesCostosLabel;
+    }
+
+    /**
+     * @return the nivelesCostosLabel
+     */
+    public javax.swing.JLabel getNivelesCostosLabel() {
+        return nivelesCostosLabel;
+    }
+
+    /**
+     * @return the sistemasCostosLabel
+     */
+    public javax.swing.JLabel getSistemasCostosLabel() {
+        return sistemasCostosLabel;
+    }
+
+    /**
+     * @return the spritesCostosLabel
+     */
+    public javax.swing.JLabel getSpritesCostosLabel() {
+        return spritesCostosLabel;
+    }
+
+    /**
+     * @return the statusDirectorLabel
+     */
+    public javax.swing.JLabel getStatusDirectorLabel() {
+        return statusDirectorLabel;
+    }
+
+    /**
+     * @return the statusPMLabel
+     */
+    public javax.swing.JLabel getStatusPMLabel() {
+        return statusPMLabel;
+    }
 }

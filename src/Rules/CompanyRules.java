@@ -35,6 +35,8 @@ public class CompanyRules {
     private float spriteCost = 20f;
     private float sistemCost = 8f;
     private float integratorCost = 25f;
+    private float pmCost = 20f;
+    private float directorCost = 30f;
 	
     //Produccion por dia del elemento
     protected float levelProductionPerDay;
@@ -149,5 +151,19 @@ public class CompanyRules {
     
     public int getGamesToGamesDLC(){
         return gamesToGamesDLC;
+    }
+
+    /**
+     * @return the pmCost
+     */
+    public float getPmCost() {
+        return pmCost;
+    }
+
+    /**
+     * @return the directorCost
+     */
+    public float getDirectorCost() {
+        return directorCost;
     }
 }

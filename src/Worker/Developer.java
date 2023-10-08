@@ -70,7 +70,7 @@ public class Developer extends Worker{
               
                 this.acc= acc -1;
                 if(acc < 1)
-                    acc=0;
+                        acc=0;
                 
                 this.mutex.release(); //Signal
                 
