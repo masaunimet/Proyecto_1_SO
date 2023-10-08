@@ -351,7 +351,7 @@ public class CompanyFrame extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel1.setText("Gastos:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 50, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 60, -1));
 
         dlcCostosLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         dlcCostosLabel.setText("0");

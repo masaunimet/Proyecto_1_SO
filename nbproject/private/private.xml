@@ -3,15 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Andres/Desktop/2324-1/Operativos/Proyecto_1_SO/src/Rules/NintendoRules.java</file>
-            <file>file:/C:/Users/Andres/Desktop/2324-1/Operativos/Proyecto_1_SO/src/Rules/CompanyRules.java</file>
-            <file>file:/C:/Users/Andres/Desktop/2324-1/Operativos/Proyecto_1_SO/src/Worker/WorkerFactory.java</file>
-            <file>file:/C:/Users/Andres/Desktop/2324-1/Operativos/Proyecto_1_SO/src/Primitives/List.java</file>
-            <file>file:/C:/Users/Andres/Desktop/2324-1/Operativos/Proyecto_1_SO/src/Companies/Company.java</file>
-            <file>file:/C:/Users/Andres/Desktop/2324-1/Operativos/Proyecto_1_SO/src/Worker/Developer.java</file>
-            <file>file:/C:/Users/Andres/Desktop/2324-1/Operativos/Proyecto_1_SO/src/Primitives/Node.java</file>
-            <file>file:/C:/Users/Andres/Desktop/2324-1/Operativos/Proyecto_1_SO/src/Worker/ProjectManager.java</file>
-            <file>file:/C:/Users/Andres/Desktop/2324-1/Operativos/Proyecto_1_SO/src/Enums/WorkerTypeEnum.java</file>
+            <file>file:/C:/Users/Masa500/Documents/NetBeansProjects/Proyecto_1_SO/src/main/MainFrame.java</file>
+            <file>file:/C:/Users/Masa500/Documents/NetBeansProjects/Proyecto_1_SO/src/main/NewMain.java</file>
+            <file>file:/C:/Users/Masa500/Documents/NetBeansProjects/Proyecto_1_SO/src/Companies/Company.java</file>
+            <file>file:/C:/Users/Masa500/Documents/NetBeansProjects/Proyecto_1_SO/src/Store/JSONStore.java</file>
+            <file>file:/C:/Users/Masa500/Documents/NetBeansProjects/Proyecto_1_SO/src/Store/CapcomJSON.json</file>
+            <file>file:/C:/Users/Masa500/Documents/NetBeansProjects/Proyecto_1_SO/src/main/Proyecto_1_SO.java</file>
+            <file>file:/C:/Users/Masa500/Documents/NetBeansProjects/Proyecto_1_SO/src/Store/NintendoJSON.json</file>
+            <file>file:/C:/Users/Masa500/Documents/NetBeansProjects/Proyecto_1_SO/src/main/Global.java</file>
+            <file>file:/C:/Users/Masa500/Documents/NetBeansProjects/Proyecto_1_SO/src/GUI/CompanyFrame.java</file>
+            <file>file:/C:/Users/Masa500/Documents/NetBeansProjects/Proyecto_1_SO/src/Store/FileEntity.java</file>
+            <file>file:/C:/Users/Masa500/Documents/NetBeansProjects/Proyecto_1_SO/src/GUI/Observer.java</file>
         </group>
     </open-files>
 </project-private>

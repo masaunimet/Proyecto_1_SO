@@ -3,7 +3,8 @@
     "durationDay":1,
     "narratives":1,
     "levels":1,
-    "sprites":1,
-    "sistems":1,
-    "DLCs":1
+    "sprites":3,
+    "sistems":3,
+    "DLCs":3,
+    "integrators":1
 }

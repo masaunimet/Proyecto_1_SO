@@ -17,6 +17,7 @@ public class FileEntity {
     private int sprites;
     private int sistems;
     private int DLCs;
+    private int integrators;
     
     public FileEntity(){}
     
@@ -29,8 +30,9 @@ public class FileEntity {
      * @param DLCs int - Numero de trabajadores en DLCs
      * @param sistems int - Numero de trabajadores en sistemas
      * @param sprites int - Numero de trabajadores en sprites
+     * @param integrators int - Numero de Integradores
      */
-    public FileEntity(float durationDay, int deadLineDays, int narratives, int levels, int DLCs, int sistems, int sprites){
+    public FileEntity(float durationDay, int deadLineDays, int narratives, int levels, int DLCs, int sistems, int sprites, int integrators){
     
         this.durationDay = durationDay;
         this.deadLineDays = deadLineDays;
@@ -39,6 +41,7 @@ public class FileEntity {
         this.DLCs = DLCs;
         this.sistems = sistems;
         this.sprites = sprites;
+        this.integrators = integrators;
     }
 
     
@@ -139,5 +142,19 @@ public class FileEntity {
      */
     public void setDurationDay(float durationDay) {
         this.durationDay = durationDay;
+    }
+
+    /**
+     * @return the Integrators
+     */
+    public int getIntegrators() {
+        return integrators;
+    }
+
+    /**
+     * @param Integrators the Integrators to set
+     */
+    public void setIntegrators(int integrators) {
+        this.integrators = integrators;
     }
 }

@@ -21,6 +21,9 @@ public class JSONStore {
     File capcomFile = new File("./src/Store/CapcomJSON.json");
     File nintendoFile = new File("./src/Store/NintendoJSON.json");
     
+    
+    public JSONStore(){}
+    
     /**
      * Metodo encargado para la lectura del JSON
      * @param companyType CompanyEnum - Tipo de compañia
