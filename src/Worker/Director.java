@@ -28,7 +28,7 @@ public class Director extends Worker {
     @Override
     public void run() {
         while (true) {
-
+            double timePassed = 0;
             try {
                 drive.getDaysMutex().acquire();
                 if (drive.getDaysUntilRelease() == 0) {
@@ -43,6 +43,8 @@ public class Director extends Worker {
                     TODO: VOlver a poner a que se reinicien los dias despuesd de que pase el tiempo 
                     drive.setDaysUntilRelease();
                      */
+                    
+                    sleep(dayDuration);
                 } else {
 
                     drive.getDaysMutex().release();
@@ -52,6 +54,7 @@ public class Director extends Worker {
 
                     double oneHour = dayDuration / 24;
                     double checkingHour = r.nextInt(24) * oneHour;
+                    timePassed = (checkingHour + 1)*oneHour;
 
                     double contador = 0;
                     while (contador < dayDuration) {
@@ -68,14 +71,15 @@ public class Director extends Worker {
                             double oneMinute = oneHour / 60;
                             sleep(Math.round(25 * oneMinute));
                             drive.setDirectorStatus(1);
+                            sleep(Math.round(35 * oneMinute));
                         }
+                        sleep(Math.round(oneHour));
 
                         contador += oneHour;
                     }
                     
 
                 }
-                sleep(dayDuration);
             } catch (Exception e) {
             }
         }
