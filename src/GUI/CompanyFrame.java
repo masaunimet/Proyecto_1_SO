@@ -21,7 +21,7 @@ public class CompanyFrame extends javax.swing.JFrame {
     public CompanyFrame(Company company) {
         initComponents();
         this.company = company;
-        
+
         //Decir los maximos y minimos de cada progress bar
         //Narrative
         guionProgressBar.setMinimum(0);
@@ -35,7 +35,6 @@ public class CompanyFrame extends javax.swing.JFrame {
         DLCProgressBar.setMinimum(0);
         DLCProgressBar.setMaximum(company.getDrive().getMaxDLCs());
 
-        
         //Sprites
         spritesProgressBar.setMinimum(0);
         spritesProgressBar.setMaximum(company.getDrive().getMaxSprites());
@@ -44,9 +43,16 @@ public class CompanyFrame extends javax.swing.JFrame {
         siistemasProgressBar.setMinimum(0);
         siistemasProgressBar.setMaximum(company.getDrive().getMaxSistems());
 
-        
-        
-        
+        //El numero de empleados con el que se comienza
+        cantDesarroladoresLabel.setText(String.valueOf(company.getEmployees()[0].getSize()));
+        cantDisenadoresLabel.setText(String.valueOf(company.getEmployees()[1].getSize()));
+        cantSpritesLabel.setText(String.valueOf(company.getEmployees()[2].getSize()));
+        cantProgramadoresLabel.setText(String.valueOf(company.getEmployees()[3].getSize()));
+        cantDLCLabel.setText(String.valueOf(company.getEmployees()[4].getSize()));
+        cantIntegradoresLabel.setText(String.valueOf(company.getEmployees()[5].getSize()));
+
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+
     }
 
     /**
@@ -119,6 +125,8 @@ public class CompanyFrame extends javax.swing.JFrame {
         verGraficoButton = new javax.swing.JButton();
         gananciasLabel3 = new javax.swing.JLabel();
         catnidadDeTrabajadores = new javax.swing.JLabel();
+        utilidadLabel3 = new javax.swing.JLabel();
+        diasLanzamientoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -127,11 +135,27 @@ public class CompanyFrame extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(900, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(guionProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 125, 41));
-        getContentPane().add(levelsProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 125, 41));
-        getContentPane().add(spritesProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 125, 41));
-        getContentPane().add(siistemasProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 125, 41));
-        getContentPane().add(DLCProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 100, 125, 41));
+
+        guionProgressBar.setBackground(new java.awt.Color(0, 0, 255));
+        guionProgressBar.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(guionProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 101, 125, 40));
+
+        levelsProgressBar.setBackground(new java.awt.Color(0, 0, 255));
+        levelsProgressBar.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(levelsProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 101, 125, 40));
+
+        spritesProgressBar.setBackground(new java.awt.Color(0, 0, 255));
+        spritesProgressBar.setForeground(new java.awt.Color(255, 255, 255));
+        spritesProgressBar.setToolTipText("");
+        getContentPane().add(spritesProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 101, 125, 40));
+
+        siistemasProgressBar.setBackground(new java.awt.Color(0, 0, 255));
+        siistemasProgressBar.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(siistemasProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 101, 125, 40));
+
+        DLCProgressBar.setBackground(new java.awt.Color(0, 0, 255));
+        DLCProgressBar.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(DLCProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 101, 125, 40));
         getContentPane().add(companyLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 294, 58));
 
         utilidadLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -171,57 +195,112 @@ public class CompanyFrame extends javax.swing.JFrame {
         getContentPane().add(dlcLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, 180, 30));
 
         masIntegradoresButton.setText("+");
-        getContentPane().add(masIntegradoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 430, 40, -1));
+        masIntegradoresButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masIntegradoresButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(masIntegradoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 420, 50, 40));
 
         menosIntegradoresButton.setText("-");
-        getContentPane().add(menosIntegradoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 430, 40, -1));
+        menosIntegradoresButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menosIntegradoresButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(menosIntegradoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 420, 50, 40));
 
         cantIntegradoresLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cantIntegradoresLabel.setText("0");
-        getContentPane().add(cantIntegradoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 440, 20, -1));
+        getContentPane().add(cantIntegradoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 430, 30, 20));
 
         masDLCButton.setText("+");
-        getContentPane().add(masDLCButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 390, 40, -1));
+        masDLCButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masDLCButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(masDLCButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 380, 50, 40));
 
         menosDLCButton.setText("-");
-        getContentPane().add(menosDLCButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 390, 40, -1));
+        menosDLCButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menosDLCButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(menosDLCButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 380, 50, 40));
 
         cantDLCLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cantDLCLabel.setText("0");
-        getContentPane().add(cantDLCLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 400, 20, -1));
+        getContentPane().add(cantDLCLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 390, 30, 20));
 
         masProgramadoresButton.setText("+");
-        getContentPane().add(masProgramadoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 350, 40, -1));
+        masProgramadoresButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masProgramadoresButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(masProgramadoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 340, 50, 40));
 
         menosProgramadoresButton.setText("-");
-        getContentPane().add(menosProgramadoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 350, 40, -1));
+        menosProgramadoresButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menosProgramadoresButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(menosProgramadoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, 50, 40));
 
         cantProgramadoresLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cantProgramadoresLabel.setText("0");
-        getContentPane().add(cantProgramadoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 360, 20, -1));
+        getContentPane().add(cantProgramadoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 350, 30, 20));
 
         masSpritesButton.setText("+");
-        getContentPane().add(masSpritesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 310, 40, -1));
+        masSpritesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masSpritesButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(masSpritesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 300, 50, 40));
 
         menosSpritesButton.setText("-");
-        getContentPane().add(menosSpritesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 310, 40, -1));
+        menosSpritesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menosSpritesButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(menosSpritesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, 50, 40));
 
         cantSpritesLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cantSpritesLabel.setText("0");
-        getContentPane().add(cantSpritesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 320, 20, -1));
+        getContentPane().add(cantSpritesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 30, 20));
 
         masDisenadoresButton.setText("+");
-        getContentPane().add(masDisenadoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 270, 40, -1));
+        masDisenadoresButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masDisenadoresButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(masDisenadoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 260, 50, 40));
 
         menosDisenadoresButton.setText("-");
-        getContentPane().add(menosDisenadoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 270, 40, -1));
+        menosDisenadoresButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menosDisenadoresButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(menosDisenadoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 260, 50, 40));
 
         cantDisenadoresLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cantDisenadoresLabel.setText("0");
-        getContentPane().add(cantDisenadoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 280, 20, -1));
+        getContentPane().add(cantDisenadoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 30, 20));
 
         masDesarrolladoresButton.setText("+");
-        getContentPane().add(masDesarrolladoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 230, 40, -1));
+        masDesarrolladoresButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masDesarrolladoresButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(masDesarrolladoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 220, 50, 40));
 
         menosDesarroladoresButton.setText("-");
         menosDesarroladoresButton.addActionListener(new java.awt.event.ActionListener() {
@@ -229,11 +308,11 @@ public class CompanyFrame extends javax.swing.JFrame {
                 menosDesarroladoresButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(menosDesarroladoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 230, 40, -1));
+        getContentPane().add(menosDesarroladoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 220, 50, 40));
 
         cantDesarroladoresLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cantDesarroladoresLabel.setText("0");
-        getContentPane().add(cantDesarroladoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 20, -1));
+        getContentPane().add(cantDesarroladoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 230, 30, 20));
 
         utilidadEmpresaLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         utilidadEmpresaLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -296,48 +375,48 @@ public class CompanyFrame extends javax.swing.JFrame {
 
         utilidadLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         utilidadLabel2.setText("Faltas:");
-        getContentPane().add(utilidadLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 80, 30));
+        getContentPane().add(utilidadLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 80, 30));
 
         gananciasLabel1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         gananciasLabel1.setText("Status PM:");
-        getContentPane().add(gananciasLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 80, 30));
+        getContentPane().add(gananciasLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 80, 30));
 
         costosLabel1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         costosLabel1.setText("Costos:");
-        getContentPane().add(costosLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 80, 30));
+        getContentPane().add(costosLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 80, 30));
 
         faltasLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         faltasLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         faltasLabel.setText("0");
-        getContentPane().add(faltasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 480, 100, 30));
+        getContentPane().add(faltasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 100, 30));
 
         costosPMLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         costosPMLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         costosPMLabel.setText("0");
-        getContentPane().add(costosPMLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 100, 30));
+        getContentPane().add(costosPMLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 100, 30));
 
         statusPMLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         statusPMLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         statusPMLabel.setText("Viendo streams");
-        getContentPane().add(statusPMLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 100, 30));
+        getContentPane().add(statusPMLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 100, 30));
 
         gananciasLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         gananciasLabel2.setText("Status Director:");
-        getContentPane().add(gananciasLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 120, 30));
+        getContentPane().add(gananciasLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 120, 30));
 
         statusDirectorLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         statusDirectorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         statusDirectorLabel.setText("Trabajando");
-        getContentPane().add(statusDirectorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 100, 30));
+        getContentPane().add(statusDirectorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 100, 30));
 
         costosLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         costosLabel2.setText("Costos:");
-        getContentPane().add(costosLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 80, 30));
+        getContentPane().add(costosLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 80, 30));
 
         costosDirectorLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         costosDirectorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         costosDirectorLabel.setText("0");
-        getContentPane().add(costosDirectorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 100, 30));
+        getContentPane().add(costosDirectorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 100, 30));
 
         vovlerButton.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         vovlerButton.setText("Volver");
@@ -354,15 +433,91 @@ public class CompanyFrame extends javax.swing.JFrame {
         catnidadDeTrabajadores.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         catnidadDeTrabajadores.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         catnidadDeTrabajadores.setText("0");
-        getContentPane().add(catnidadDeTrabajadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 190, 50, 30));
+        getContentPane().add(catnidadDeTrabajadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 190, 60, 40));
+
+        utilidadLabel3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        utilidadLabel3.setText("Días para el lanzamiento");
+        getContentPane().add(utilidadLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 200, 30));
+
+        diasLanzamientoLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        diasLanzamientoLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        diasLanzamientoLabel.setText("0");
+        getContentPane().add(diasLanzamientoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 100, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void menosDesarroladoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosDesarroladoresButtonActionPerformed
-        // TODO add your handling code here:
+        company.fireEmployee(0);
+        cantDesarroladoresLabel.setText(String.valueOf(company.getEmployees()[0].getSize()));
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
     }//GEN-LAST:event_menosDesarroladoresButtonActionPerformed
 
+    private void masDesarrolladoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masDesarrolladoresButtonActionPerformed
+        company.hireEmployee(0);
+        cantDesarroladoresLabel.setText(String.valueOf(company.getEmployees()[0].getSize()));
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+    }//GEN-LAST:event_masDesarrolladoresButtonActionPerformed
+
+    private void masDisenadoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masDisenadoresButtonActionPerformed
+        company.hireEmployee(1);
+        cantDisenadoresLabel.setText(String.valueOf(company.getEmployees()[1].getSize()));
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+    }//GEN-LAST:event_masDisenadoresButtonActionPerformed
+
+    private void menosDisenadoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosDisenadoresButtonActionPerformed
+        company.fireEmployee(1);
+        cantDisenadoresLabel.setText(String.valueOf(company.getEmployees()[1].getSize()));
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+    }//GEN-LAST:event_menosDisenadoresButtonActionPerformed
+
+    private void masSpritesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masSpritesButtonActionPerformed
+        company.hireEmployee(2);
+        cantSpritesLabel.setText(String.valueOf(company.getEmployees()[2].getSize()));
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+    }//GEN-LAST:event_masSpritesButtonActionPerformed
+
+    private void menosSpritesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosSpritesButtonActionPerformed
+        company.fireEmployee(2);
+        cantSpritesLabel.setText(String.valueOf(company.getEmployees()[2].getSize()));
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+    }//GEN-LAST:event_menosSpritesButtonActionPerformed
+
+    private void masProgramadoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masProgramadoresButtonActionPerformed
+        company.hireEmployee(3);
+        cantProgramadoresLabel.setText(String.valueOf(company.getEmployees()[3].getSize()));
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+    }//GEN-LAST:event_masProgramadoresButtonActionPerformed
+
+    private void menosProgramadoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosProgramadoresButtonActionPerformed
+        company.fireEmployee(3);
+        cantProgramadoresLabel.setText(String.valueOf(company.getEmployees()[3].getSize()));
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+    }//GEN-LAST:event_menosProgramadoresButtonActionPerformed
+
+    private void masDLCButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masDLCButtonActionPerformed
+        company.hireEmployee(4);
+        cantDLCLabel.setText(String.valueOf(company.getEmployees()[4].getSize()));
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+    }//GEN-LAST:event_masDLCButtonActionPerformed
+
+    private void menosDLCButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosDLCButtonActionPerformed
+        company.fireEmployee(4);
+        cantDLCLabel.setText(String.valueOf(company.getEmployees()[4].getSize()));
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+    }//GEN-LAST:event_menosDLCButtonActionPerformed
+
+    private void masIntegradoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masIntegradoresButtonActionPerformed
+        company.hireEmployee(5);
+        cantIntegradoresLabel.setText(String.valueOf(company.getEmployees()[5].getSize()));
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+    }//GEN-LAST:event_masIntegradoresButtonActionPerformed
+
+    private void menosIntegradoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosIntegradoresButtonActionPerformed
+        company.fireEmployee(5);
+        cantIntegradoresLabel.setText(String.valueOf(company.getEmployees()[5].getSize()));
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+    }//GEN-LAST:event_menosIntegradoresButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -382,6 +537,7 @@ public class CompanyFrame extends javax.swing.JFrame {
     private javax.swing.JLabel costosLabel2;
     private javax.swing.JLabel costosPMLabel;
     private javax.swing.JLabel desarroladoresLabel;
+    private javax.swing.JLabel diasLanzamientoLabel;
     private javax.swing.JLabel disenadoresLabel;
     private javax.swing.JLabel dlcCostosLabel;
     private javax.swing.JLabel dlcLabel;
@@ -425,6 +581,7 @@ public class CompanyFrame extends javax.swing.JFrame {
     private javax.swing.JLabel utilidadLabel;
     private javax.swing.JLabel utilidadLabel1;
     private javax.swing.JLabel utilidadLabel2;
+    private javax.swing.JLabel utilidadLabel3;
     private javax.swing.JButton verGraficoButton;
     private javax.swing.JButton vovlerButton;
     // End of variables declaration//GEN-END:variables
@@ -602,5 +759,12 @@ public class CompanyFrame extends javax.swing.JFrame {
      */
     public javax.swing.JLabel getStatusPMLabel() {
         return statusPMLabel;
+    }
+
+    /**
+     * @return the diasLanzamientoLabel
+     */
+    public javax.swing.JLabel getDiasLanzamientoLabel() {
+        return diasLanzamientoLabel;
     }
 }

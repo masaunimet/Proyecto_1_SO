@@ -103,6 +103,13 @@ public class Observer extends Thread {
             /*
             TODO: Hacer costos
              */
+            
+            
+            //Días hasta el lanzamiento
+            if (company.getDrive().getDaysUntilRelease() != Integer.parseInt(window.getDiasLanzamientoLabel().getText())){
+                window.getDiasLanzamientoLabel().setText(String.valueOf(company.getDrive().getDaysUntilRelease()));
+            }
+            
         }
 
     }

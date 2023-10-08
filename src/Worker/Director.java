@@ -38,6 +38,7 @@ public class Director extends Worker {
                     drive.setUtility(drive.getUtility() + drive.getGames() * this.companyRules.getIncome() + drive.getGames() * companyRules.getIncomeDLC());
                     drive.setGames(0);
                     drive.setGamesWithDlc(0);
+                    drive.setDaysUntilRelease(Global.daysBetweenReleases);
                     drive.getConsumerMutex().release();
                     /*
                     TODO: VOlver a poner a que se reinicien los dias despuesd de que pase el tiempo 

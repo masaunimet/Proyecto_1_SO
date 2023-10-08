@@ -13,7 +13,7 @@ public class Global {
     
     
     public static float daysDuartion = 5000f;
-    
+    public static int daysBetweenReleases = 15;
 
   
     
