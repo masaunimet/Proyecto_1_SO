@@ -17,11 +17,12 @@ import java.util.concurrent.Semaphore;
 public abstract class Worker extends Thread{
     
     protected WorkerTypeEnum type;
-    protected int dayDuration = 1000;
-    protected int daysWorked=0;
+    protected int dayDuration = 5000;
+    protected int daysWorked = 0;
     protected float costPerHour;
     protected Semaphore mutex;
     protected CompanyRules companyRules;
+    protected boolean hired;
     
     /**
      * Constructor Base para un trabajador
@@ -35,6 +36,7 @@ public abstract class Worker extends Thread{
         this.costPerHour = cph;
         this.mutex = m;
         this.companyRules = gameRules;
+        this. hired = true;
     }
 
     /**
@@ -56,4 +58,14 @@ public abstract class Worker extends Thread{
     	 
     	return (!historical)?costPerHour * 24f:costPerHour * 24f * this.daysWorked;
     }
+
+    public boolean isHired() {
+        return hired;
+    }
+
+    public void setHired(boolean hired) {
+        this.hired = hired;
+    }
+    
+    
 }

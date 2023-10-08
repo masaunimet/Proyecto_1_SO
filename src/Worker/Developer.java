@@ -33,7 +33,7 @@ public class Developer extends Worker{
      * @param m Semaphore - Semaforo
      * @param gameRules CompanyRules - datos de la compañia asociada
      */
-    public Developer (WorkerTypeEnum type, float pp, float cph, Drive drive, Semaphore m, CompanyRules gameRules){
+    public Developer (WorkerTypeEnum type, float pp, float cph, Drive drive, Semaphore m,CompanyRules gameRules){
         super(type,cph,m,gameRules);
         this.productionPerDay = pp;
         this.drive = drive;
@@ -42,7 +42,7 @@ public class Developer extends Worker{
     @Override
     public void run() {
         
-        while(true) {
+        while(hired) {
            
             try {
                 	
@@ -70,7 +70,7 @@ public class Developer extends Worker{
               
                 this.acc= acc -1;
                 if(acc < 1)
-                    acc=0;
+                        acc=0;
                 
                 this.mutex.release(); //Signal
                 
