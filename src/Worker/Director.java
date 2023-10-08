@@ -44,7 +44,7 @@ public class Director extends Worker {
                     TODO: VOlver a poner a que se reinicien los dias despuesd de que pase el tiempo 
                     drive.setDaysUntilRelease();
                      */
-                    
+
                     sleep(dayDuration);
                 } else {
 
@@ -55,7 +55,7 @@ public class Director extends Worker {
 
                     double oneHour = dayDuration / 24;
                     double checkingHour = r.nextInt(24) * oneHour;
-                    timePassed = (checkingHour + 1)*oneHour;
+                    timePassed = (checkingHour + 1) * oneHour;
 
                     double contador = 0;
                     while (contador < dayDuration) {
@@ -67,7 +67,7 @@ public class Director extends Worker {
                             drive.setDirectorStatus(0);
 
                             System.out.println("voy a revisar ahora");
-                            
+
                             //Ya aqui empiezan a pasar los minutos 
                             double oneMinute = oneHour / 60;
                             sleep(Math.round(25 * oneMinute));
@@ -78,9 +78,13 @@ public class Director extends Worker {
 
                         contador += oneHour;
                     }
-                    
 
                 }
+                
+                //Cobrando su dia de trabajo
+                drive.getCostsMutex().acquire();
+                drive.setDirectorCost((drive.getDirectorCost() + costPerHour * 24));
+                drive.getCostsMutex().release();
             } catch (Exception e) {
             }
         }
