@@ -6,6 +6,7 @@
 package GUI;
 
 import Companies.Company;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -52,6 +53,11 @@ public class CompanyFrame extends javax.swing.JFrame {
         cantIntegradoresLabel.setText(String.valueOf(company.getEmployees()[5].getSize()));
 
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        
+        ImageIcon icon = new ImageIcon(company.getRules().getLogo());
+        ImageIcon bg = new ImageIcon(company.getRules().getBackground());
+        companyLogo.setIcon(icon);
+        bgLabel.setIcon(bg);
 
     }
 
@@ -66,10 +72,10 @@ public class CompanyFrame extends javax.swing.JFrame {
 
         guionProgressBar = new javax.swing.JProgressBar();
         levelsProgressBar = new javax.swing.JProgressBar();
+        companyLogo = new javax.swing.JLabel();
         spritesProgressBar = new javax.swing.JProgressBar();
         siistemasProgressBar = new javax.swing.JProgressBar();
         DLCProgressBar = new javax.swing.JProgressBar();
-        companyLogo = new javax.swing.JLabel();
         utilidadLabel = new javax.swing.JLabel();
         gananciasLabel = new javax.swing.JLabel();
         costosLabel = new javax.swing.JLabel();
@@ -127,6 +133,7 @@ public class CompanyFrame extends javax.swing.JFrame {
         catnidadDeTrabajadores = new javax.swing.JLabel();
         utilidadLabel3 = new javax.swing.JLabel();
         diasLanzamientoLabel = new javax.swing.JLabel();
+        bgLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(900, 600));
@@ -136,61 +143,79 @@ public class CompanyFrame extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(900, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        guionProgressBar.setBackground(new java.awt.Color(0, 0, 255));
-        guionProgressBar.setForeground(new java.awt.Color(255, 255, 255));
+        guionProgressBar.setBackground(new java.awt.Color(255, 255, 255));
+        guionProgressBar.setForeground(new java.awt.Color(51, 51, 255));
         getContentPane().add(guionProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 101, 125, 40));
 
-        levelsProgressBar.setBackground(new java.awt.Color(0, 0, 255));
-        levelsProgressBar.setForeground(new java.awt.Color(255, 255, 255));
+        levelsProgressBar.setBackground(new java.awt.Color(255, 255, 255));
+        levelsProgressBar.setForeground(new java.awt.Color(51, 51, 255));
         getContentPane().add(levelsProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 101, 125, 40));
+        getContentPane().add(companyLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 220, 50));
 
-        spritesProgressBar.setBackground(new java.awt.Color(0, 0, 255));
-        spritesProgressBar.setForeground(new java.awt.Color(255, 255, 255));
+        spritesProgressBar.setBackground(new java.awt.Color(255, 255, 255));
+        spritesProgressBar.setForeground(new java.awt.Color(51, 51, 255));
         spritesProgressBar.setToolTipText("");
         getContentPane().add(spritesProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 101, 125, 40));
 
-        siistemasProgressBar.setBackground(new java.awt.Color(0, 0, 255));
-        siistemasProgressBar.setForeground(new java.awt.Color(255, 255, 255));
+        siistemasProgressBar.setBackground(new java.awt.Color(255, 255, 255));
+        siistemasProgressBar.setForeground(new java.awt.Color(51, 51, 255));
         getContentPane().add(siistemasProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 101, 125, 40));
 
-        DLCProgressBar.setBackground(new java.awt.Color(0, 0, 255));
-        DLCProgressBar.setForeground(new java.awt.Color(255, 255, 255));
+        DLCProgressBar.setBackground(new java.awt.Color(255, 255, 255));
+        DLCProgressBar.setForeground(new java.awt.Color(51, 51, 255));
         getContentPane().add(DLCProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 101, 125, 40));
-        getContentPane().add(companyLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 294, 58));
 
+        utilidadLabel.setBackground(new java.awt.Color(255, 255, 255));
         utilidadLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        utilidadLabel.setForeground(new java.awt.Color(255, 255, 255));
         utilidadLabel.setText("Utilidad:");
         getContentPane().add(utilidadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 80, 30));
 
+        gananciasLabel.setBackground(new java.awt.Color(255, 255, 255));
         gananciasLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        gananciasLabel.setForeground(new java.awt.Color(255, 255, 255));
         gananciasLabel.setText("Ganancias:");
         getContentPane().add(gananciasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 80, 30));
 
+        costosLabel.setBackground(new java.awt.Color(255, 255, 255));
         costosLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        costosLabel.setForeground(new java.awt.Color(255, 255, 255));
         costosLabel.setText("Costos:");
         getContentPane().add(costosLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 80, 30));
 
+        utilidadLabel1.setBackground(new java.awt.Color(255, 255, 255));
         utilidadLabel1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        utilidadLabel1.setForeground(new java.awt.Color(255, 255, 255));
         utilidadLabel1.setText("Artistas de sprites:");
         getContentPane().add(utilidadLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 170, 30));
 
+        desarroladoresLabel.setBackground(new java.awt.Color(255, 255, 255));
         desarroladoresLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        desarroladoresLabel.setForeground(new java.awt.Color(255, 255, 255));
         desarroladoresLabel.setText("Desarrolladores de narrativa:");
         getContentPane().add(desarroladoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 190, 30));
 
+        disenadoresLabel.setBackground(new java.awt.Color(255, 255, 255));
         disenadoresLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        disenadoresLabel.setForeground(new java.awt.Color(255, 255, 255));
         disenadoresLabel.setText("Diseñadores de niveles:");
         getContentPane().add(disenadoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 180, 30));
 
+        integradoresLabel.setBackground(new java.awt.Color(255, 255, 255));
         integradoresLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        integradoresLabel.setForeground(new java.awt.Color(255, 255, 255));
         integradoresLabel.setText("Integradores:");
         getContentPane().add(integradoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, 150, 30));
 
+        programadoresLabel.setBackground(new java.awt.Color(255, 255, 255));
         programadoresLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        programadoresLabel.setForeground(new java.awt.Color(255, 255, 255));
         programadoresLabel.setText("Programadores de lógica:");
         getContentPane().add(programadoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, 180, 30));
 
+        dlcLabel.setBackground(new java.awt.Color(255, 255, 255));
         dlcLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        dlcLabel.setForeground(new java.awt.Color(255, 255, 255));
         dlcLabel.setText("Desarrolladores de DLC:");
         getContentPane().add(dlcLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, 180, 30));
 
@@ -211,6 +236,7 @@ public class CompanyFrame extends javax.swing.JFrame {
         getContentPane().add(menosIntegradoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 420, 50, 40));
 
         cantIntegradoresLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cantIntegradoresLabel.setForeground(new java.awt.Color(255, 255, 255));
         cantIntegradoresLabel.setText("0");
         getContentPane().add(cantIntegradoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 430, 30, 20));
 
@@ -231,6 +257,7 @@ public class CompanyFrame extends javax.swing.JFrame {
         getContentPane().add(menosDLCButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 380, 50, 40));
 
         cantDLCLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cantDLCLabel.setForeground(new java.awt.Color(255, 255, 255));
         cantDLCLabel.setText("0");
         getContentPane().add(cantDLCLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 390, 30, 20));
 
@@ -251,6 +278,7 @@ public class CompanyFrame extends javax.swing.JFrame {
         getContentPane().add(menosProgramadoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, 50, 40));
 
         cantProgramadoresLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cantProgramadoresLabel.setForeground(new java.awt.Color(255, 255, 255));
         cantProgramadoresLabel.setText("0");
         getContentPane().add(cantProgramadoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 350, 30, 20));
 
@@ -271,6 +299,7 @@ public class CompanyFrame extends javax.swing.JFrame {
         getContentPane().add(menosSpritesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, 50, 40));
 
         cantSpritesLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cantSpritesLabel.setForeground(new java.awt.Color(255, 255, 255));
         cantSpritesLabel.setText("0");
         getContentPane().add(cantSpritesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 30, 20));
 
@@ -291,6 +320,7 @@ public class CompanyFrame extends javax.swing.JFrame {
         getContentPane().add(menosDisenadoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 260, 50, 40));
 
         cantDisenadoresLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cantDisenadoresLabel.setForeground(new java.awt.Color(255, 255, 255));
         cantDisenadoresLabel.setText("0");
         getContentPane().add(cantDisenadoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 30, 20));
 
@@ -311,109 +341,147 @@ public class CompanyFrame extends javax.swing.JFrame {
         getContentPane().add(menosDesarroladoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 220, 50, 40));
 
         cantDesarroladoresLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cantDesarroladoresLabel.setForeground(new java.awt.Color(255, 255, 255));
         cantDesarroladoresLabel.setText("0");
         getContentPane().add(cantDesarroladoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 230, 30, 20));
 
+        utilidadEmpresaLabel.setBackground(new java.awt.Color(255, 255, 255));
         utilidadEmpresaLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        utilidadEmpresaLabel.setForeground(new java.awt.Color(255, 255, 255));
         utilidadEmpresaLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         utilidadEmpresaLabel.setText("0");
         getContentPane().add(utilidadEmpresaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 100, 30));
 
+        costosEmpresaLabel.setBackground(new java.awt.Color(255, 255, 255));
         costosEmpresaLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        costosEmpresaLabel.setForeground(new java.awt.Color(255, 255, 255));
         costosEmpresaLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         costosEmpresaLabel.setText("0");
         getContentPane().add(costosEmpresaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 100, 30));
 
+        gananciasEmpresaLabel.setBackground(new java.awt.Color(255, 255, 255));
         gananciasEmpresaLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        gananciasEmpresaLabel.setForeground(new java.awt.Color(255, 255, 255));
         gananciasEmpresaLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         gananciasEmpresaLabel.setText("0");
         getContentPane().add(gananciasEmpresaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 100, 30));
 
         dlcsLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        dlcsLabel.setForeground(new java.awt.Color(255, 255, 255));
         dlcsLabel.setText("DLCs");
         getContentPane().add(dlcsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, 100, 50));
 
         guionesLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        guionesLabel.setForeground(new java.awt.Color(255, 255, 255));
         guionesLabel.setText("Guiones");
         getContentPane().add(guionesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 100, 50));
 
         nivelesLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        nivelesLabel.setForeground(new java.awt.Color(255, 255, 255));
         nivelesLabel.setText("Niveles");
         getContentPane().add(nivelesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 100, 50));
 
         spritesLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        spritesLabel.setForeground(new java.awt.Color(255, 255, 255));
         spritesLabel.setText("Sprites");
         getContentPane().add(spritesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 100, 50));
 
         sistemasLabel.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        sistemasLabel.setForeground(new java.awt.Color(255, 255, 255));
         sistemasLabel.setText("Sistemas");
         getContentPane().add(sistemasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 100, 50));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Gastos:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 50, -1));
 
+        dlcCostosLabel.setForeground(new java.awt.Color(255, 255, 255));
         dlcCostosLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         dlcCostosLabel.setText("0");
         getContentPane().add(dlcCostosLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 140, 90, -1));
 
+        guionesCostosLabel.setForeground(new java.awt.Color(255, 255, 255));
         guionesCostosLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         guionesCostosLabel.setText("0");
         getContentPane().add(guionesCostosLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 90, -1));
 
+        nivelesCostosLabel.setForeground(new java.awt.Color(255, 255, 255));
         nivelesCostosLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nivelesCostosLabel.setText("0");
         getContentPane().add(nivelesCostosLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 90, -1));
 
+        spritesCostosLabel.setForeground(new java.awt.Color(255, 255, 255));
         spritesCostosLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         spritesCostosLabel.setText("0");
         getContentPane().add(spritesCostosLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 90, -1));
 
+        sistemasCostosLabel.setForeground(new java.awt.Color(255, 255, 255));
         sistemasCostosLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         sistemasCostosLabel.setText("0");
         getContentPane().add(sistemasCostosLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 90, -1));
 
+        utilidadLabel2.setBackground(new java.awt.Color(255, 255, 255));
         utilidadLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        utilidadLabel2.setForeground(new java.awt.Color(255, 255, 255));
         utilidadLabel2.setText("Faltas:");
         getContentPane().add(utilidadLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 80, 30));
 
+        gananciasLabel1.setBackground(new java.awt.Color(255, 255, 255));
         gananciasLabel1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        gananciasLabel1.setForeground(new java.awt.Color(255, 255, 255));
         gananciasLabel1.setText("Status PM:");
         getContentPane().add(gananciasLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 80, 30));
 
+        costosLabel1.setBackground(new java.awt.Color(255, 255, 255));
         costosLabel1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        costosLabel1.setForeground(new java.awt.Color(255, 255, 255));
         costosLabel1.setText("Costos:");
         getContentPane().add(costosLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 80, 30));
 
+        faltasLabel.setBackground(new java.awt.Color(255, 255, 255));
         faltasLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        faltasLabel.setForeground(new java.awt.Color(255, 255, 255));
         faltasLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         faltasLabel.setText("0");
         getContentPane().add(faltasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 100, 30));
 
+        costosPMLabel.setBackground(new java.awt.Color(255, 255, 255));
         costosPMLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        costosPMLabel.setForeground(new java.awt.Color(255, 255, 255));
         costosPMLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         costosPMLabel.setText("0");
         getContentPane().add(costosPMLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 100, 30));
 
+        statusPMLabel.setBackground(new java.awt.Color(255, 255, 255));
         statusPMLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        statusPMLabel.setForeground(new java.awt.Color(255, 255, 255));
         statusPMLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         statusPMLabel.setText("Viendo streams");
         getContentPane().add(statusPMLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 100, 30));
 
+        gananciasLabel2.setBackground(new java.awt.Color(255, 255, 255));
         gananciasLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        gananciasLabel2.setForeground(new java.awt.Color(255, 255, 255));
         gananciasLabel2.setText("Status Director:");
         getContentPane().add(gananciasLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 120, 30));
 
+        statusDirectorLabel.setBackground(new java.awt.Color(255, 255, 255));
         statusDirectorLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        statusDirectorLabel.setForeground(new java.awt.Color(255, 255, 255));
         statusDirectorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         statusDirectorLabel.setText("Trabajando");
         getContentPane().add(statusDirectorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 100, 30));
 
+        costosLabel2.setBackground(new java.awt.Color(255, 255, 255));
         costosLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        costosLabel2.setForeground(new java.awt.Color(255, 255, 255));
         costosLabel2.setText("Costos:");
         getContentPane().add(costosLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 80, 30));
 
+        costosDirectorLabel.setBackground(new java.awt.Color(255, 255, 255));
         costosDirectorLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        costosDirectorLabel.setForeground(new java.awt.Color(255, 255, 255));
         costosDirectorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         costosDirectorLabel.setText("0");
         getContentPane().add(costosDirectorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 100, 30));
@@ -426,23 +494,34 @@ public class CompanyFrame extends javax.swing.JFrame {
         verGraficoButton.setText("Ver Gráfico");
         getContentPane().add(verGraficoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 510, 140, 40));
 
+        gananciasLabel3.setBackground(new java.awt.Color(255, 255, 255));
         gananciasLabel3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        gananciasLabel3.setForeground(new java.awt.Color(255, 255, 255));
         gananciasLabel3.setText("Trabajadores disponibles:");
         getContentPane().add(gananciasLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 180, 30));
 
         catnidadDeTrabajadores.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        catnidadDeTrabajadores.setForeground(new java.awt.Color(255, 255, 255));
         catnidadDeTrabajadores.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         catnidadDeTrabajadores.setText("0");
         getContentPane().add(catnidadDeTrabajadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 190, 60, 40));
 
+        utilidadLabel3.setBackground(new java.awt.Color(255, 255, 255));
         utilidadLabel3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        utilidadLabel3.setForeground(new java.awt.Color(255, 255, 255));
         utilidadLabel3.setText("Días para el lanzamiento");
         getContentPane().add(utilidadLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 200, 30));
 
+        diasLanzamientoLabel.setBackground(new java.awt.Color(255, 255, 255));
         diasLanzamientoLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        diasLanzamientoLabel.setForeground(new java.awt.Color(255, 255, 255));
         diasLanzamientoLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         diasLanzamientoLabel.setText("0");
         getContentPane().add(diasLanzamientoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 100, 30));
+
+        bgLabel.setBackground(new java.awt.Color(255, 255, 255));
+        bgLabel.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(bgLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -522,6 +601,7 @@ public class CompanyFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar DLCProgressBar;
+    private javax.swing.JLabel bgLabel;
     private javax.swing.JLabel cantDLCLabel;
     private javax.swing.JLabel cantDesarroladoresLabel;
     private javax.swing.JLabel cantDisenadoresLabel;

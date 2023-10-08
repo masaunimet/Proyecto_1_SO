@@ -38,7 +38,7 @@ public class Integrator extends Worker {
         this.makingGame = false;
         this.gamesToGamesDLC = gamesToGamesDLC;
     }
-    
+
     /*
     observaciones dde integrator:
     
@@ -46,8 +46,7 @@ public class Integrator extends Worker {
     2. No estamos creando los DLCs en unna carpeta especial. Es necesario
     3. El juego se agrega realmente una vez se termina de crear el juego, ahora se crea y el tipo duerme. Deberia de ser al revés creo.
     
-    */
-
+     */
     @Override
     public void run() {
         while (true) {
@@ -58,10 +57,19 @@ public class Integrator extends Worker {
                 //Si esta haciendo un juego espera 2 dias sino solo un dia
                 if (makingGame) {
                     sleep(2 * dayDuration);
+
+                    drive.getCostsMutex().acquire();
+                    drive.setIntegratorCost(drive.getIntegratorCost() + costPerHour * 48);
+                    drive.getCostsMutex().release();
+
                     //Aqui A1
-                    
                 } else {
                     sleep(dayDuration);
+
+                    drive.getCostsMutex().acquire();
+                    drive.setIntegratorCost(drive.getIntegratorCost() + costPerHour * 24);
+                    drive.getCostsMutex().release();
+
                 }
 
                 this.makingGame = false;
@@ -95,14 +103,14 @@ public class Integrator extends Worker {
                 drive.setNarrative(drive.getNarrative() - companyRules.getNarrativeNeedIt());
                 if (drive.getGames() >= gamesToGamesDLC && drive.getGames() % gamesToGamesDLC == 0) {
                     drive.setDLCs(drive.getDLCs() - companyRules.getDLCsNeedIt());
-                    
+
                 }
 
                 //TODO: Preguntar a Toni si esto no va despues de que se produzca el juego (en A1)
                 drive.getConsumerMutex().acquire();
                 drive.setGames(drive.getGames() + 1);
                 drive.getConsumerMutex().release();
-                
+
                 makingGame = true;
             }
             drive.getProducerMutex().release();

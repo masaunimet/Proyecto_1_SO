@@ -15,7 +15,7 @@ import java.util.concurrent.Semaphore;
 public class Drive {
 
     //elementos para juegos
-        private int levels;
+    private int levels;
     private int narrative;
     private int DLCs;
     private int sprites;
@@ -51,6 +51,20 @@ public class Drive {
     private int pmStatus = 0;
     private int faltas = 0;
     private int salaryDiscount = 0;
+    
+    //Costos de empleados
+    private Semaphore costsMutex = new Semaphore(1);
+    
+    private float narrativeCost = 0;
+    private float levelsCost = 0;
+    private float spriteCost = 0;
+    private float sistemCost = 0;
+    private float DLCCost = 0;
+    private float integratorCost = 0;
+    private float pmCost = 0;
+    private float directorCost = 0;
+    
+    
     
     /**
      * Constructor que setea los elementos para un juego
@@ -307,5 +321,131 @@ public class Drive {
      */
     public void setSalaryDiscount(int salaryDiscount) {
         this.salaryDiscount = salaryDiscount;
+    }
+
+    /**
+     * @return the costsMutex
+     */
+    public Semaphore getCostsMutex() {
+        return costsMutex;
+    }
+
+    /**
+     * @param costsMutex the costsMutex to set
+     */
+    public void setCostsMutex(Semaphore costsMutex) {
+        this.costsMutex = costsMutex;
+    }
+
+    /**
+     * @return the narrativeCost
+     */
+    public float getNarrativeCost() {
+        return narrativeCost;
+    }
+
+    /**
+     * @param narrativeCost the narrativeCost to set
+     */
+    public void setNarrativeCost(float narrativeCost) {
+        this.narrativeCost = narrativeCost;
+    }
+
+    /**
+     * @return the levelsCost
+     */
+    public float getLevelsCost() {
+        return levelsCost;
+    }
+
+    /**
+     * @param levelsCost the levelsCost to set
+     */
+    public void setLevelsCost(float levelsCost) {
+        this.levelsCost = levelsCost;
+    }
+
+    /**
+     * @return the spriteCost
+     */
+    public float getSpriteCost() {
+        return spriteCost;
+    }
+
+    /**
+     * @param spriteCost the spriteCost to set
+     */
+    public void setSpriteCost(float spriteCost) {
+        this.spriteCost = spriteCost;
+    }
+
+    /**
+     * @return the sistemCost
+     */
+    public float getSistemCost() {
+        return sistemCost;
+    }
+
+    /**
+     * @param sistemCost the sistemCost to set
+     */
+    public void setSistemCost(float sistemCost) {
+        this.sistemCost = sistemCost;
+    }
+
+    /**
+     * @return the DLCCost
+     */
+    public float getDLCCost() {
+        return DLCCost;
+    }
+
+    /**
+     * @param DLCCost the DLCCost to set
+     */
+    public void setDLCCost(float DLCCost) {
+        this.DLCCost = DLCCost;
+    }
+
+    /**
+     * @return the integratorCost
+     */
+    public float getIntegratorCost() {
+        return integratorCost;
+    }
+
+    /**
+     * @param integratorCost the integratorCost to set
+     */
+    public void setIntegratorCost(float integratorCost) {
+        this.integratorCost = integratorCost;
+    }
+
+    /**
+     * @return the pmCost
+     */
+    public float getPmCost() {
+        return pmCost;
+    }
+
+    /**
+     * @param pmCost the pmCost to set
+     */
+    public void setPmCost(float pmCost) {
+        this.pmCost = pmCost;
+    }
+
+    /**
+     * @return the directorCost
+     */
+    public float getDirectorCost() {
+        return directorCost;
+    }
+
+    /**
+     * @param directorCost the directorCost to set
+     */
+    public void setDirectorCost(float directorCost) {
+        this.directorCost = directorCost;
     }
 }

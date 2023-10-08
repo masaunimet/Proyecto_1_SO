@@ -16,22 +16,25 @@ public class NintendoRules extends CompanyRules{
     public NintendoRules() {
     	
     	this.levelsNeedIt = 2;
-    	this.narrativeNeedIt = 1;
-    	this.DLCsNeedIt = 1;
-    	this.spritesNeedIt = 6;
-    	this.sistemsNeedIt = 5;
+    	this.narrativeNeedIt = 2;
+    	this.DLCsNeedIt = 2;
+    	this.spritesNeedIt = 4;
+    	this.sistemsNeedIt = 4;
         
-    	this.income = 400000f;
-    	this.incomeDLC = 750000f;
+    	this.income = 550000f;
+    	this.incomeDLC = 600000f;
         
-        this.gamesToGamesDLC = 4;
+        this.gamesToGamesDLC = 5;
         
-        this.employees = 17;
+        this.employees = 14;
         
-        this.levelProductionPerDay = 0.26f;
-        this.narrativeProductionPerDay = 0.26f;
-        this.spritesProductionPerDay = 1f;
-        this.sistemsProductionPerDay = 5f;
-        this.DLCsProductionPerDay = 0.51f;
+        this.levelProductionPerDay = 0.34f;
+        this.narrativeProductionPerDay = 0.34f;
+        this.spritesProductionPerDay = 2f;
+        this.sistemsProductionPerDay = 3f;
+        this.DLCsProductionPerDay = 0.34f;
+        
+        this.logo = "src\\Images\\nintendologo.png";
+        this.background = "src\\Images\\nintendobg.jpg";
     }
 }
