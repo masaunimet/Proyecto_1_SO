@@ -9,7 +9,6 @@ import Enums.WorkerTypeEnum;
 import Primitives.List;
 import Rules.CompanyRules;
 import Store.Drive;
-import Worker.Developer;
 import Worker.Worker;
 import Worker.WorkerFactory;
 import javax.swing.JOptionPane;
@@ -119,7 +118,7 @@ public class Company {
      */
     public void fireEmployee(int type) {
         if (amountOfEmployees > 0) {
-            boolean eliminado = employees[type].removeLast(drive);
+            boolean eliminado = employees[type].removeLast();
             if (eliminado) {
                 amountOfEmployees--;
                 vacancy++;

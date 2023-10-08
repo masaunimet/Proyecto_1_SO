@@ -5,7 +5,6 @@
  */
 package Primitives;
 
-import Store.Drive;
 import Worker.Worker;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -64,23 +63,20 @@ public class List {
     /*
     Quitar de la lista al ultimo elemento, y retorna un booleano para decir que lo puedo eliminar
      */
-    public boolean removeLast(Drive drive) {
-        try {
-            drive.getProducerMutex().acquire();
-            drive.getConsumerMutex().acquire();
+    public boolean removeLast() {
             if (this.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No se puede quitar mas trabajadores de este tipo debido a que no hay");
                 return false;
             } else {
                 if (this.size == 1) {
-                    this.pFirst.getData().interrupt();
+                    this.pFirst.getData().setHired(false);
                     this.empty();
                     return true;
                 } else {
                     Node pAux = this.pFirst;
                     for (int i = 0; i < this.size; i++) {
                         if (pAux.getpNext().equals(this.pLast)) {
-                            this.pLast.getData().interrupt();
+                            this.pLast.getData().setHired(false);
                             this.pLast = pAux;
                             this.size--;
                             return true;
@@ -89,11 +85,7 @@ public class List {
                     }
                 }
             }
-            drive.getConsumerMutex().release();
-            drive.getProducerMutex().release();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(List.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
         return false;
     }
 

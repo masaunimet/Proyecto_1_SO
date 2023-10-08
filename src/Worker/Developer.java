@@ -42,7 +42,7 @@ public class Developer extends Worker{
     @Override
     public void run() {
         
-        while(true) {
+        while(hired) {
            
             try {
                 	
