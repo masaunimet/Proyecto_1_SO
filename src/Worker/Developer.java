@@ -60,11 +60,11 @@ public class Developer extends Worker{
     
         this.acc += this.productionPerDay;
         this.daysWorked++;
-    
+        
+        try {
         //Mientra que la cantidad de trabajo acumulado sea menos a 1
-        while (this.acc >= 1){
-            try {
-                
+            while (this.acc >= 1){
+            
                 this.mutex.acquire(1); // Envia a la cola al semaforo
                 this.drive.addProduct(1, type);  //Agrega el producto al drive
               
@@ -74,29 +74,37 @@ public class Developer extends Worker{
                 
                 this.mutex.release(); //Signal
                 
-            } catch (InterruptedException ex) {
-            //Logger.getLogger(Developer.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+            } 
+           
+        //Aplica los pagos 
+        drive.getCostsMutex().acquire();
         
         switch(this.type) {
             case DLC:
-                System.out.println("DLCs Hechos: "+this.drive.getDLCs());
+                drive.setDLCCost(this.costPerHour*24);
                 break;
             case Sistem:
-                System.out.println("Sistemas Hechos: "+this.drive.getSistems());
+                drive.setSistemCost(this.costPerHour*24);
                 break;
             case Narrative:
-                System.out.println("Narrativas Hechos: "+this.drive.getNarrative());
+                drive.setNarrativeCost(this.costPerHour*24);
                 break;
             case Level:
-                System.out.println("Niveles Hechos: "+this.drive.getLevels());
+                drive.setLevelsCost(this.costPerHour*24);
                 break;
             case Sprite:
-                System.out.println("Sprites Hechos: "+this.drive.getSprites());
+                drive.setSpriteCost(this.costPerHour*24);
                 break;
             default:
                 break;
             }
+        
+        drive.getCostsMutex().release();
+        
+        } catch (InterruptedException ex) {
+            //Logger.getLogger(Developer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
 }
