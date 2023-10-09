@@ -35,16 +35,11 @@ public class Director extends Worker {
                     drive.getDaysMutex().release();
                     //Aqui estoy diciendo que si ya es el dia del lanzamiennto, el director aumenta la utilidad de la empresa de manera de que es la utilidad acutal mas la vetna de los dlcs mas la venta de los juegos regulares
                     drive.getConsumerMutex().acquire();
-                    drive.setUtility(drive.getUtility() + drive.getGames() * this.companyRules.getIncome() + drive.getGames() * companyRules.getIncomeDLC());
+                    drive.setEarnings(drive.getEarnings() + drive.getGames() * this.companyRules.getIncome() + drive.getGames() * companyRules.getIncomeDLC());
                     drive.setGames(0);
                     drive.setGamesWithDlc(0);
                     drive.setDaysUntilRelease(Global.daysBetweenReleases);
                     drive.getConsumerMutex().release();
-                    /*
-                    TODO: VOlver a poner a que se reinicien los dias despuesd de que pase el tiempo 
-                    drive.setDaysUntilRelease();
-                     */
-
                     sleep(dayDuration);
                 } else {
 

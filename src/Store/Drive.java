@@ -64,7 +64,7 @@ public class Drive {
     private float pmCost = 0;
     private float directorCost = 0;
     
-    
+    private float earnings = 0;
     
     /**
      * Constructor que setea los elementos para un juego
@@ -447,5 +447,19 @@ public class Drive {
      */
     public void setDirectorCost(float directorCost) {
         this.directorCost = directorCost;
+    }
+
+    /**
+     * @return the earnings
+     */
+    public float getEarnings() {
+        return earnings;
+    }
+
+    /**
+     * @param earnings the earnings to set
+     */
+    public void setEarnings(float earnings) {
+        this.earnings = earnings;
     }
 }
