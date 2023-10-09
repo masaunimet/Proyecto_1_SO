@@ -96,7 +96,7 @@ public class Developer extends Worker{
                 drive.setSpriteCost(this.costPerHour*24);
                 break;
             default:
-                break;
+                break; 
             }
         
         drive.getCostsMutex().release();
