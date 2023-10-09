@@ -57,22 +57,23 @@ public class Observer extends Thread {
                 window.getSiistemasProgressBar().setString(String.valueOf(company.getDrive().getSistems()));
             }
 
-            //Costos de los juegos
-            /*
-            TODO: declarar costos de cada parte de los juegos            
-             */
-            //Datos de la empresa
-            /*
-            TODO: decalrar costos y gangancias
-            
             //Costos
-            window.getCostosEmpresaLabel().setText();
-            
+            float costos = company.getDrive().getLevelsCost() + company.getDrive().getNarrativeCost() + company.getDrive().getSpriteCost() + company.getDrive().getSistemCost() + company.getDrive().getDLCCost() + company.getDrive().getIntegratorCost() + company.getDrive().getPmCost() + company.getDrive().getDirectorCost();
+            window.getCostosEmpresaLabel().setText(String.valueOf(costos));
+
             //Ganancias
-            window.getGananciasEmpresaLabel().setText();
-             */
+            if (company.getDrive().getEarnings() < 1000) {
+                window.getGananciasEmpresaLabel().setText(String.valueOf(company.getDrive().getEarnings()));
+            } else {
+                window.getGananciasEmpresaLabel().setText(String.valueOf(company.getDrive().getEarnings() / 1000) + " K");
+            }
+            
             //Utilidad
-            window.getUtilidadEmpresaLabel().setText(String.valueOf(company.getDrive().getUtility()));
+            if ((company.getDrive().getEarnings() - costos) < 1000) {
+                window.getUtilidadEmpresaLabel().setText(String.valueOf(company.getDrive().getEarnings() - costos));
+            } else {
+                window.getUtilidadEmpresaLabel().setText(String.valueOf((company.getDrive().getEarnings() - costos) / 1000) + " K");
+            }
 
             //Director
             //Status
@@ -82,10 +83,6 @@ public class Observer extends Thread {
                 window.getStatusDirectorLabel().setText("Trabajando");
             }
 
-            //Costos
-            /*
-            TODO: Hacer Costos
-             */
             //Project Manager
             //Status
             if (company.getDrive().getPmStatus() == 0) {
@@ -99,17 +96,80 @@ public class Observer extends Thread {
                 window.getFaltasLabel().setText(String.valueOf(company.getDrive().getFaltas()));
             }
 
+
             //Costos
-            /*
-            TODO: Hacer costos
-             */
-            
-            
+            //Narratives
+            if (company.getDrive().getNarrativeCost() < 1000) {
+                window.getGuionesCostosLabel().setText(String.valueOf(company.getDrive().getNarrativeCost()));
+            } else {
+                window.getGuionesCostosLabel().setText(String.valueOf(company.getDrive().getNarrativeCost() / 1000) + " K");
+            }
+
+            //Levels
+            if (company.getDrive().getLevelsCost() < 1000) {
+                window.getNivelesCostosLabel().setText(String.valueOf(company.getDrive().getLevelsCost()));
+            } else {
+                window.getNivelesCostosLabel().setText(String.valueOf(company.getDrive().getLevelsCost() / 1000) + " K");
+            }
+
+            //Sprites
+            if (company.getDrive().getSpriteCost() < 1000) {
+                window.getSpritesCostosLabel().setText(String.valueOf(company.getDrive().getSpriteCost()));
+            } else {
+                window.getSpritesCostosLabel().setText(String.valueOf(company.getDrive().getSpriteCost() / 1000) + " K");
+            }
+
+            //Sistems
+            if (company.getDrive().getSistemCost() < 1000) {
+                window.getSistemasCostosLabel().setText(String.valueOf(company.getDrive().getSistemCost()));
+            } else {
+                window.getSistemasCostosLabel().setText(String.valueOf(company.getDrive().getSistemCost() / 1000) + " K");
+            }
+
+            //DLC
+            if (company.getDrive().getDLCCost() < 1000) {
+                window.getDlcCostosLabel().setText(String.valueOf(company.getDrive().getDLCCost()));
+            } else {
+                window.getDlcCostosLabel().setText(String.valueOf(company.getDrive().getDLCCost() / 1000) + " K");
+            }
+
+            //Integradores
+            if (company.getDrive().getIntegratorCost() < 1000) {
+                window.getCostosIntegradores().setText(String.valueOf(company.getDrive().getIntegratorCost()));
+            } else {
+                window.getCostosIntegradores().setText(String.valueOf(company.getDrive().getIntegratorCost() / 1000) + " K");
+            }
+
+            //PM
+            if (company.getDrive().getPmCost() < 1000) {
+                window.getCostosPMLabel().setText(String.valueOf(company.getDrive().getPmCost()));
+            } else {
+                window.getCostosPMLabel().setText(String.valueOf(company.getDrive().getPmCost() / 1000) + " K");
+            }
+
+            //Director
+            if (company.getDrive().getDirectorCost()< 1000) {
+                window.getCostosDirectorLabel().setText(String.valueOf(company.getDrive().getDirectorCost()));
+            } else {
+                window.getCostosDirectorLabel().setText(String.valueOf(company.getDrive().getDirectorCost() / 1000) + " K");
+            }
+
             //Días hasta el lanzamiento
-            if (company.getDrive().getDaysUntilRelease() != Integer.parseInt(window.getDiasLanzamientoLabel().getText())){
+            if (company.getDrive().getDaysUntilRelease() != Integer.parseInt(window.getDiasLanzamientoLabel().getText())) {
                 window.getDiasLanzamientoLabel().setText(String.valueOf(company.getDrive().getDaysUntilRelease()));
             }
             
+            //Juegos Listos
+            //Normal
+            if (company.getDrive().getGames() != Integer.parseInt(window.getCantJuegosNormales().getText())){
+                window.getCantJuegosNormales().setText(String.valueOf(company.getDrive().getGames()));
+            }
+            //Con Dlc
+            if (company.getDrive().getGamesWithDlc() != Integer.parseInt(window.getCantJuegosConDLC().getText())){
+                window.getCantJuegosConDLC().setText(String.valueOf(company.getDrive().getGamesWithDlc()));
+            }
+            
+
         }
 
     }
