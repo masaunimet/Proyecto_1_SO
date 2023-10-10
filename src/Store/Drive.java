@@ -45,7 +45,7 @@ public class Drive {
     
     
     //Status del director: 0 = vigilando, 1 = trabajando
-    private int directorStatus = 0;
+    private int directorStatus = 1;
     
     //Status del PM: 0  = trabajando, 1 = viendo streams
     private int pmStatus = 0;
