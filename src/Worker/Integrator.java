@@ -49,7 +49,7 @@ public class Integrator extends Worker {
      */
     @Override
     public void run() {
-        while (true) {
+        while (hired) {
 
             try {
 
@@ -101,14 +101,20 @@ public class Integrator extends Worker {
                 drive.setSprites(drive.getSprites() - companyRules.getSpritesNeedIt());
                 drive.setLevels(drive.getLevels() - companyRules.getLevelsNeedIt());
                 drive.setNarrative(drive.getNarrative() - companyRules.getNarrativeNeedIt());
+                drive.getConsumerMutex().acquire();
                 if (drive.getGames() >= gamesToGamesDLC && drive.getGames() % gamesToGamesDLC == 0) {
                     drive.setDLCs(drive.getDLCs() - companyRules.getDLCsNeedIt());
-
+                } 
+                
+                
+                if (drive.getGamesReleasedSinceLastDLC() != gamesToGamesDLC){
+                    drive.setGames(drive.getGames() + 1);
+                    drive.setGamesReleasedSinceLastDLC(drive.getGamesReleasedSinceLastDLC() + 1 );
+                }else{
+                    drive.setGamesWithDlc(drive.getGamesWithDlc() + 1);
+                    drive.setGamesReleasedSinceLastDLC(0);
+                    
                 }
-
-                //TODO: Preguntar a Toni si esto no va despues de que se produzca el juego (en A1)
-                drive.getConsumerMutex().acquire();
-                drive.setGames(drive.getGames() + 1);
                 drive.getConsumerMutex().release();
 
                 makingGame = true;

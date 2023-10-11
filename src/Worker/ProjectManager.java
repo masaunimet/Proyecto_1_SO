@@ -22,12 +22,13 @@ public class ProjectManager extends Worker {
     public ProjectManager(WorkerTypeEnum type, float cph, Semaphore m, CompanyRules gameRules, Drive drive) {
         super(type, cph, m, gameRules);
         this.drive = drive;
+        this.hired = true;
 
     }
 
     @Override
     public void run() {
-        while (true) {
+        while (hired) {
             try {
 
                 // Media hora = un dia entre 24 horas entre 2

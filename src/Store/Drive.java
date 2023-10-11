@@ -66,6 +66,9 @@ public class Drive {
     
     private float earnings = 0;
     
+    //Esta variable es para saber cuadntos juegos se han sacado desde el ultimo DLC
+    private int gamesReleasedSinceLastDLC = 0;
+    
     /**
      * Constructor que setea los elementos para un juego
      * @param levels int - Numero de niveles
@@ -461,5 +464,19 @@ public class Drive {
      */
     public void setEarnings(float earnings) {
         this.earnings = earnings;
+    }
+
+    /**
+     * @return the gamesReleased
+     */
+    public int getGamesReleasedSinceLastDLC() {
+        return gamesReleasedSinceLastDLC;
+    }
+
+    /**
+     * @param gamesReleased the gamesReleased to set
+     */
+    public void setGamesReleasedSinceLastDLC(int gamesReleased) {
+        this.gamesReleasedSinceLastDLC = gamesReleased;
     }
 }

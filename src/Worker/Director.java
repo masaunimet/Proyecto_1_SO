@@ -23,11 +23,12 @@ public class Director extends Worker {
     public Director(WorkerTypeEnum wte, float f, Semaphore smphr, CompanyRules cr, Drive drive) {
         super(wte, f, smphr, cr);
         this.drive = drive;
+        this.hired = true;
     }
 
     @Override
     public void run() {
-        while (true) {
+        while (hired) {
             double timePassed = 0;
             try {
                 drive.getDaysMutex().acquire();

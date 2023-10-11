@@ -37,7 +37,6 @@ public class CompanyFrame extends javax.swing.JFrame {
     }
 
     public Company company;
-    
 
     /**
      * Creates new form CompanyFrame
@@ -76,13 +75,14 @@ public class CompanyFrame extends javax.swing.JFrame {
         cantIntegradoresLabel.setText(String.valueOf(company.getEmployees()[5].getSize()));
 
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
-        
+
         ImageIcon icon = new ImageIcon(company.getRules().getLogo());
         ImageIcon bg = new ImageIcon(company.getRules().getBackground());
         companyLogo.setIcon(icon);
         bgLabel.setIcon(bg);
 
     }
+
     public CompanyFrame(Company company, CompanyFrame seconCompanyWindow) {
         initComponents();
         this.company = company;
@@ -117,7 +117,7 @@ public class CompanyFrame extends javax.swing.JFrame {
         cantIntegradoresLabel.setText(String.valueOf(company.getEmployees()[5].getSize()));
 
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
-        
+
         ImageIcon icon = new ImageIcon(company.getRules().getLogo());
         ImageIcon bg = new ImageIcon(company.getRules().getBackground());
         companyLogo.setIcon(icon);
@@ -712,10 +712,11 @@ public class CompanyFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_menosIntegradoresButtonActionPerformed
 
     private void vovlerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vovlerButtonActionPerformed
+        this.company.bankrupcy();
         this.company = null;
         this.setVisible(false);
         Global.mainMenu.setVisible(true);
-        
+
     }//GEN-LAST:event_vovlerButtonActionPerformed
 
 

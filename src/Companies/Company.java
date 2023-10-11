@@ -172,6 +172,14 @@ public class Company {
             JOptionPane.showMessageDialog(null, "No hay plata para mas personal.");
         }
     }
+    
+    public void bankrupcy(){
+        for (int i = 0; i < employees.length; i++) {
+            for (int j = 0; j < employees[i].getSize(); j++) {
+                employees[i].removeLast();
+            }
+        }
+    }
 
     public CompanyRules getRules() {
         return rules;
