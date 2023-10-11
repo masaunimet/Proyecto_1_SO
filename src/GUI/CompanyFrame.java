@@ -7,6 +7,7 @@ package GUI;
 
 import Companies.Company;
 import javax.swing.ImageIcon;
+import main.Global;
 
 /**
  *
@@ -36,11 +37,53 @@ public class CompanyFrame extends javax.swing.JFrame {
     }
 
     public Company company;
+    
 
     /**
      * Creates new form CompanyFrame
      */
     public CompanyFrame(Company company) {
+        initComponents();
+        this.company = company;
+
+        //Decir los maximos y minimos de cada progress bar
+        //Narrative
+        guionProgressBar.setMinimum(0);
+        guionProgressBar.setMaximum(company.getDrive().getMaxNarrative());
+
+        //Niveles
+        levelsProgressBar.setMinimum(0);
+        levelsProgressBar.setMaximum(company.getDrive().getMaxLevels());
+
+        //DLc
+        DLCProgressBar.setMinimum(0);
+        DLCProgressBar.setMaximum(company.getDrive().getMaxDLCs());
+
+        //Sprites
+        spritesProgressBar.setMinimum(0);
+        spritesProgressBar.setMaximum(company.getDrive().getMaxSprites());
+
+        //Sistemas
+        siistemasProgressBar.setMinimum(0);
+        siistemasProgressBar.setMaximum(company.getDrive().getMaxSistems());
+
+        //El numero de empleados con el que se comienza
+        cantDesarroladoresLabel.setText(String.valueOf(company.getEmployees()[0].getSize()));
+        cantDisenadoresLabel.setText(String.valueOf(company.getEmployees()[1].getSize()));
+        cantSpritesLabel.setText(String.valueOf(company.getEmployees()[2].getSize()));
+        cantProgramadoresLabel.setText(String.valueOf(company.getEmployees()[3].getSize()));
+        cantDLCLabel.setText(String.valueOf(company.getEmployees()[4].getSize()));
+        cantIntegradoresLabel.setText(String.valueOf(company.getEmployees()[5].getSize()));
+
+        catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        
+        ImageIcon icon = new ImageIcon(company.getRules().getLogo());
+        ImageIcon bg = new ImageIcon(company.getRules().getBackground());
+        companyLogo.setIcon(icon);
+        bgLabel.setIcon(bg);
+
+    }
+    public CompanyFrame(Company company, CompanyFrame seconCompanyWindow) {
         initComponents();
         this.company = company;
 
@@ -514,6 +557,11 @@ public class CompanyFrame extends javax.swing.JFrame {
 
         vovlerButton.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         vovlerButton.setText("Volver");
+        vovlerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vovlerButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(vovlerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 90, 40));
 
         verGraficoButton.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -662,6 +710,13 @@ public class CompanyFrame extends javax.swing.JFrame {
         cantIntegradoresLabel.setText(String.valueOf(company.getEmployees()[5].getSize()));
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
     }//GEN-LAST:event_menosIntegradoresButtonActionPerformed
+
+    private void vovlerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vovlerButtonActionPerformed
+        this.company = null;
+        this.setVisible(false);
+        Global.mainMenu.setVisible(true);
+        
+    }//GEN-LAST:event_vovlerButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

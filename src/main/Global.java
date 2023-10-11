@@ -5,6 +5,8 @@
  */
 package main;
 
+import GUI.MainMenu;
+
 /**
  *
  * @author Andres
@@ -14,6 +16,8 @@ public class Global {
     
     public static float daysDuartion = 500f;
     public static int daysBetweenReleases = 15;
+    
+    public final static MainMenu mainMenu = new MainMenu();
 
   
     
