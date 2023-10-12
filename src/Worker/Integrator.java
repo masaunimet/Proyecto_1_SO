@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  */
 public class Integrator extends Worker {
 
-    private Drive drive;
+    private final Drive drive;
     private boolean makingGame;
     private int gamesToGamesDLC;
 
@@ -62,7 +62,6 @@ public class Integrator extends Worker {
                     drive.setIntegratorCost(drive.getIntegratorCost() + costPerHour * 48);
                     drive.getCostsMutex().release();
 
-                    //Aqui A1
                 } else {
                     sleep(dayDuration);
 
@@ -123,6 +122,5 @@ public class Integrator extends Worker {
         } catch (InterruptedException ex) {
             Logger.getLogger(Integrator.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Juegos Hechos: " + drive.getGames());
     }
 }

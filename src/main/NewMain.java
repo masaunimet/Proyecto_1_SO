@@ -21,9 +21,7 @@ public class NewMain {
      */
     public static void main(String[] args) {
 
-        MainMenu window = new MainMenu();
-        window.setVisible(true);
-
+        Global.mainMenu.setVisible(true);
     }
 
 }

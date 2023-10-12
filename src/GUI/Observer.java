@@ -30,31 +30,32 @@ public class Observer extends Thread {
             //Narrative
             if (window.getGuionProgressBar().getValue() != company.getDrive().getNarrative()) {
                 window.getGuionProgressBar().setValue(company.getDrive().getNarrative());
-                window.getGuionProgressBar().setString(String.valueOf(company.getDrive().getNarrative()));
+                window.getTextoGuiones().setText(String.valueOf(company.getDrive().getNarrative()));
             }
 
             //DLC
             if (window.getDLCProgressBar().getValue() != company.getDrive().getDLCs()) {
                 window.getDLCProgressBar().setValue(company.getDrive().getDLCs());
-                window.getDLCProgressBar().setString(String.valueOf(company.getDrive().getDLCs()));
+                window.getTextoDLC().setText(String.valueOf(company.getDrive().getDLCs()));
             }
 
             //Levels
             if (window.getLevelsProgressBar().getValue() != company.getDrive().getLevels()) {
                 window.getLevelsProgressBar().setValue(company.getDrive().getLevels());
-                window.getLevelsProgressBar().setString(String.valueOf(company.getDrive().getLevels()));
+                window.getTextoNiveles().setText(String.valueOf(company.getDrive().getLevels()));
             }
 
             //Sprites
             if (window.getSpritesProgressBar().getValue() != company.getDrive().getSprites()) {
                 window.getSpritesProgressBar().setValue(company.getDrive().getSprites());
-                window.getSpritesProgressBar().setString(String.valueOf(company.getDrive().getSprites()));
+                System.out.println("Sprites" + String.valueOf(company.getDrive().getSprites()) );
+                window.getTextoSprites().setText(String.valueOf(company.getDrive().getSprites()));
             }
 
             //Sisttemas
             if (window.getSiistemasProgressBar().getValue() != company.getDrive().getSistems()) {
                 window.getSiistemasProgressBar().setValue(company.getDrive().getSistems());
-                window.getSiistemasProgressBar().setString(String.valueOf(company.getDrive().getSistems()));
+                window.getTextoSistemas().setText(String.valueOf(company.getDrive().getSistems()));
             }
 
             //Costos

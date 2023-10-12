@@ -55,8 +55,8 @@ public class List {
             this.pLast.setpNext(pNew);
             this.pLast = pNew;
         }
-        pNew.getData().start();
         this.size++;
+        pNew.getData().start();
 
     }
 
@@ -71,6 +71,7 @@ public class List {
                 if (this.size == 1) {
                     this.pFirst.getData().setHired(false);
                     this.empty();
+                    
                     return true;
                 } else {
                     Node pAux = this.pFirst;

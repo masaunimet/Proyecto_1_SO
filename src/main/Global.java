@@ -14,7 +14,7 @@ import GUI.MainMenu;
 public class Global {
     
     
-    public static float daysDuartion = 500f;
+    public static float daysDuartion = 100f;
     public static int daysBetweenReleases = 15;
     
     public final static MainMenu mainMenu = new MainMenu();

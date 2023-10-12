@@ -174,9 +174,12 @@ public class Company {
     }
     
     public void bankrupcy(){
-        for (int i = 0; i < employees.length; i++) {
-            for (int j = 0; j < employees[i].getSize(); j++) {
-                employees[i].removeLast();
+        for (List employee : employees) {
+            int size = employee.getSize();
+            for (int j = 0; j < size; j++) {
+                System.out.println(employee.getSize());
+                employee.removeLast();
+                System.out.println("Fired employee number: " + j);
             }
         }
     }

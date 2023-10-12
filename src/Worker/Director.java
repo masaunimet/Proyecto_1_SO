@@ -32,14 +32,14 @@ public class Director extends Worker {
             double timePassed = 0;
             try {
                 drive.getDaysMutex().acquire();
-                if (drive.getDaysUntilRelease() == 0) {
-                    drive.getDaysMutex().release();
+                if (drive.getDaysUntilRelease() <= 0) {
                     //Aqui estoy diciendo que si ya es el dia del lanzamiennto, el director aumenta la utilidad de la empresa de manera de que es la utilidad acutal mas la vetna de los dlcs mas la venta de los juegos regulares
                     drive.getConsumerMutex().acquire();
                     drive.setEarnings(drive.getEarnings() + drive.getGames() * this.companyRules.getIncome() + drive.getGames() * companyRules.getIncomeDLC());
                     drive.setGames(0);
                     drive.setGamesWithDlc(0);
                     drive.setDaysUntilRelease(Global.daysBetweenReleases);
+                    drive.getDaysMutex().release();
                     drive.getConsumerMutex().release();
                     sleep(dayDuration);
                 } else {
@@ -55,14 +55,11 @@ public class Director extends Worker {
 
                     double contador = 0;
                     while (contador < dayDuration) {
-                        System.out.println("");
-                        System.out.println(contador);
-                        System.out.println(checkingHour);
-                        System.out.println("");
+
                         if (contador == checkingHour) {
                             drive.setDirectorStatus(0);
 
-                            System.out.println("voy a revisar ahora");
+
 
                             //Ya aqui empiezan a pasar los minutos 
                             double oneMinute = oneHour / 60;
