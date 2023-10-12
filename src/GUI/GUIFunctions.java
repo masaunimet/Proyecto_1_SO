@@ -95,12 +95,12 @@ public class GUIFunctions {
 
             if (entity != null) {
                 Capcom = new Company(entity.getLevels(), entity.getNarratives(), entity.getSprites(), entity.getSistems(),
-                        entity.getDLCs(), entity.getIntegrators(), capcomDrive, nintendoRules);
+                        entity.getDLCs(), entity.getIntegrators(), capcomDrive, capcomRules);
                 
                 Global.daysDuartion = entity.getDurationDay();
                 Global.daysBetweenReleases = entity.getDeadLineDays();
             } else {
-                Capcom = new Company(1, 1, 1, 1, 1, 1, capcomDrive, nintendoRules);
+                Capcom = new Company(1, 1, 1, 1, 1, 1, capcomDrive, capcomRules);
                 
                 Global.daysDuartion = 500f;
                 Global.daysBetweenReleases = 15;

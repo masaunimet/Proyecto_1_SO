@@ -52,6 +52,7 @@ public class CompanyFrame extends javax.swing.JFrame {
      */
     public CompanyFrame(Company company) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.company = company;
 
         //Decir los maximos y minimos de cada progress bar
@@ -230,7 +231,6 @@ public class CompanyFrame extends javax.swing.JFrame {
         bgLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(900, 600));
         setMinimumSize(new java.awt.Dimension(900, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(900, 600));

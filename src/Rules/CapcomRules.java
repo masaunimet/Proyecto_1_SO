@@ -35,7 +35,7 @@ public class CapcomRules extends CompanyRules {
         this.sistemsProductionPerDay = 5f;
         this.DLCsProductionPerDay = 0.51f;
 
-        this.logo = "src\\Images\\capcomlogo.png";
+        this.logo = "src\\Images\\capcomlogo.jpg";
         this.background = "src\\Images\\capcombg.jpg";
     }
 }
