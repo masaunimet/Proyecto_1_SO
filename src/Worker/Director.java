@@ -41,7 +41,7 @@ public class Director extends Worker {
                     drive.setGamesWithDlc(0);
                     drive.setDaysUntilRelease(Global.daysBetweenReleases);
                     drive.getConsumerMutex().release();
-                    sleep(dayDuration);
+                    sleep(getDayDuration());
                 } else {
 
                     drive.getDaysMutex().release();
@@ -49,12 +49,12 @@ public class Director extends Worker {
                     //El director escoge una hora del día aleatoriamente si llega esa hora entonces el director cambiara su estado a revisando
                     Random r = new Random();
 
-                    double oneHour = dayDuration / 24;
+                    double oneHour = getDayDuration() / 24;
                     double checkingHour = r.nextInt(24) * oneHour;
                     timePassed = (checkingHour + 1) * oneHour;
 
                     double contador = 0;
-                    while (contador < dayDuration) {
+                    while (contador < getDayDuration()) {
                         System.out.println("");
                         System.out.println(contador);
                         System.out.println(checkingHour);

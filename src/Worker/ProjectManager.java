@@ -32,7 +32,7 @@ public class ProjectManager extends Worker {
             try {
 
                 // Media hora = un dia entre 24 horas entre 2
-                double halfHour = dayDuration / 48;
+                double halfHour = getDayDuration() / 48;
                 int counter = 0;
 
                 // 16 horas al dia

@@ -47,7 +47,7 @@ public class Developer extends Worker{
             try {
                 	
                 Work();
-                sleep(dayDuration);
+                sleep(getDayDuration());
                
             } catch (InterruptedException ex) {
                 //Logger.getLogger(Developer.class.getName()).log(Level.SEVERE, null, ex);

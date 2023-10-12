@@ -53,6 +53,7 @@ public class CompanyFrame extends javax.swing.JFrame {
     public CompanyFrame(Company company) {
         initComponents();
         this.company = company;
+        company.updateTimes();
 
         //Decir los maximos y minimos de cada progress bar
         //Narrative
@@ -801,7 +802,7 @@ public class CompanyFrame extends javax.swing.JFrame {
         file.setIntegrators(company.getEmployees()[5].getSize());
         
         file.setDeadLineDays(Global.daysBetweenReleases);
-        file.setDurationDay(Global.daysDuartion);
+        file.setDurationDay((int)Global.daysDuartion);
         
         return file;
     }

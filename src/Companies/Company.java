@@ -7,11 +7,13 @@ package Companies;
 
 import Enums.WorkerTypeEnum;
 import Primitives.List;
+import Primitives.Node;
 import Rules.CompanyRules;
 import Store.Drive;
 import Worker.Worker;
 import Worker.WorkerFactory;
 import javax.swing.JOptionPane;
+import main.Global;
 
 /**
  *
@@ -177,6 +179,19 @@ public class Company {
         for (int i = 0; i < employees.length; i++) {
             for (int j = 0; j < employees[i].getSize(); j++) {
                 employees[i].removeLast();
+            }
+        }
+    }
+    
+    public void updateTimes(){
+    
+        for (int i = 0; i < employees.length; i++) {
+            for (int j = 0; j < employees[i].getSize(); j++) {
+                
+                Node temp = employees[i].getNode(j);
+                
+                if(temp != null)
+                    employees[i].getNode(j).getData().setDayDuration((int) Global.daysDuartion);
             }
         }
     }

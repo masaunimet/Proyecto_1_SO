@@ -10,7 +10,7 @@ package Store;
  */
 public class FileEntity {
     
-    private float durationDay;
+    private int durationDay;
     private int deadLineDays;
     private int narratives;
     private int levels;
@@ -23,7 +23,7 @@ public class FileEntity {
     
     /**
      * Constructor de la entidad para lectura y escritura de JSONs
-     * @param durationDay float - Duracion en segundos de cuanto dura un dia 
+     * @param durationDay int - Duracion en segundos de cuanto dura un dia 
      * @param deadLineDays int - Tiempo en el que se tiene que lanzar los juegos
      * @param narratives int - Numero de trabajadores en narrativa
      * @param levels int - Numero de trabajadores en niveles
@@ -32,7 +32,7 @@ public class FileEntity {
      * @param sprites int - Numero de trabajadores en sprites
      * @param integrators int - Numero de Integradores
      */
-    public FileEntity(float durationDay, int deadLineDays, int narratives, int levels, int DLCs, int sistems, int sprites, int integrators){
+    public FileEntity(int durationDay, int deadLineDays, int narratives, int levels, int DLCs, int sistems, int sprites, int integrators){
     
         this.durationDay = durationDay;
         this.deadLineDays = deadLineDays;
@@ -133,14 +133,14 @@ public class FileEntity {
     /**
      * @return the durationDay
      */
-    public float getDurationDay() {
+    public int getDurationDay() {
         return durationDay;
     }
 
     /**
      * @param durationDay the durationDay to set
      */
-    public void setDurationDay(float durationDay) {
+    public void setDurationDay(int durationDay) {
         this.durationDay = durationDay;
     }
 

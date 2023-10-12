@@ -18,6 +18,8 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() {
         initComponents();
+        
+        settingsWindows = new Settings();
     }
 
     /**
@@ -88,6 +90,8 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void changeInitialDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeInitialDataButtonActionPerformed
         // TODO add your handling code here:
+        settingsWindows.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_changeInitialDataButtonActionPerformed
 
     private void openCapcomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openCapcomButtonActionPerformed
@@ -140,6 +144,8 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
     }
+    
+    private Settings settingsWindows;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton changeInitialDataButton;

@@ -1,10 +1,1 @@
-{
-    "deadLineDays":15,
-    "durationDay":500,
-    "narratives":4,
-    "levels":4,
-    "sprites":1,
-    "sistems":1,
-    "DLCs":1,
-    "integrators":3
-}
+{"durationDay":10000,"deadLineDays":10,"narratives":4,"levels":4,"sprites":1,"sistems":1,"DLCs":1,"integrators":3}
