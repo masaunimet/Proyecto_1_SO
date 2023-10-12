@@ -13,6 +13,7 @@ import Store.Drive;
 import Store.FileEntity;
 import Store.JSONStore;
 import java.io.IOException;
+import main.Global;
 
 /**
  *
@@ -45,8 +46,14 @@ public class GUIFunctions {
             if (entity != null) {
                 Nintendo = new Company(entity.getLevels(), entity.getNarratives(), entity.getSprites(), entity.getSistems(),
                         entity.getDLCs(), entity.getIntegrators(), nintendoDrive, nintendoRules);
+                
+                Global.daysDuartion = entity.getDurationDay();
+                Global.daysBetweenReleases = entity.getDeadLineDays();
             } else {
                 Nintendo = new Company(1, 1, 1, 1, 1, 1, nintendoDrive, nintendoRules);
+                
+                Global.daysDuartion = 500f;
+                Global.daysBetweenReleases = 15;
             }
             CompanyFrame companyFrame = new CompanyFrame(Nintendo);
 
@@ -72,8 +79,14 @@ public class GUIFunctions {
             if (entity != null) {
                 Capcom = new Company(entity.getLevels(), entity.getNarratives(), entity.getSprites(), entity.getSistems(),
                         entity.getDLCs(), entity.getIntegrators(), capcomDrive, nintendoRules);
+                
+                Global.daysDuartion = entity.getDurationDay();
+                Global.daysBetweenReleases = entity.getDeadLineDays();
             } else {
                 Capcom = new Company(1, 1, 1, 1, 1, 1, capcomDrive, nintendoRules);
+                
+                Global.daysDuartion = 500f;
+                Global.daysBetweenReleases = 15;
             }
 
             CompanyFrame companyFrame = new CompanyFrame(Capcom);

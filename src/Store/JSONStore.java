@@ -63,7 +63,7 @@ public class JSONStore {
      * @param companyType CompanyEnum - Tipo de compañia
      * @throws IOException -  Error si no se encuentra o no se puede escribir el archivo
      */
-    public void setCapcomFile(FileEntity file, CompanyEnum companyType) throws IOException{
+    public void setFile(FileEntity file, CompanyEnum companyType) throws IOException{
         
         try{
             

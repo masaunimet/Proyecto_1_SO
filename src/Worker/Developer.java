@@ -81,19 +81,19 @@ public class Developer extends Worker{
         
         switch(this.type) {
             case DLC:
-                drive.setDLCCost(this.costPerHour*24);
+                drive.setDLCCost(drive.getDLCCost()+this.costPerHour*24);
                 break;
             case Sistem:
-                drive.setSistemCost(this.costPerHour*24);
+                drive.setSistemCost(drive.getSistemCost()+this.costPerHour*24);
                 break;
             case Narrative:
-                drive.setNarrativeCost(this.costPerHour*24);
+                drive.setNarrativeCost(drive.getNarrativeCost()+this.costPerHour*24);
                 break;
             case Level:
-                drive.setLevelsCost(this.costPerHour*24);
+                drive.setLevelsCost(drive.getLevelsCost()+this.costPerHour*24);
                 break;
             case Sprite:
-                drive.setSpriteCost(this.costPerHour*24);
+                drive.setSpriteCost(drive.getSpriteCost()+this.costPerHour*24);
                 break;
             default:
                 break; 

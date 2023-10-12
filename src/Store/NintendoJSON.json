@@ -1,6 +1,6 @@
 {
     "deadLineDays":15,
-    "durationDay":1,
+    "durationDay":500,
     "narratives":4,
     "levels":4,
     "sprites":1,

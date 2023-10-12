@@ -6,6 +6,13 @@
 package GUI;
 
 import Companies.Company;
+import Enums.CompanyEnum;
+import Store.FileEntity;
+import Store.JSONStore;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import main.Global;
 
@@ -14,6 +21,8 @@ import main.Global;
  * @author Andres
  */
 public class CompanyFrame extends javax.swing.JFrame {
+    
+    JSONStore storeJSON = new JSONStore();
 
     /**
      * @return the cantJuegosConDLC
@@ -643,72 +652,132 @@ public class CompanyFrame extends javax.swing.JFrame {
         company.fireEmployee(0);
         cantDesarroladoresLabel.setText(String.valueOf(company.getEmployees()[0].getSize()));
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        try {
+            storeJSON.setFile(getFile(), company.getRules().getCompanyEnum());
+        } catch (IOException ex) {
+            Logger.getLogger(CompanyFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_menosDesarroladoresButtonActionPerformed
 
     private void masDesarrolladoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masDesarrolladoresButtonActionPerformed
         company.hireEmployee(0);
         cantDesarroladoresLabel.setText(String.valueOf(company.getEmployees()[0].getSize()));
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        try {
+            storeJSON.setFile(getFile(), company.getRules().getCompanyEnum());
+        } catch (IOException ex) {
+            Logger.getLogger(CompanyFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_masDesarrolladoresButtonActionPerformed
 
     private void masDisenadoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masDisenadoresButtonActionPerformed
         company.hireEmployee(1);
         cantDisenadoresLabel.setText(String.valueOf(company.getEmployees()[1].getSize()));
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        try {
+            storeJSON.setFile(getFile(), company.getRules().getCompanyEnum());
+        } catch (IOException ex) {
+            Logger.getLogger(CompanyFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_masDisenadoresButtonActionPerformed
 
     private void menosDisenadoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosDisenadoresButtonActionPerformed
         company.fireEmployee(1);
         cantDisenadoresLabel.setText(String.valueOf(company.getEmployees()[1].getSize()));
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        try {
+            storeJSON.setFile(getFile(), company.getRules().getCompanyEnum());
+        } catch (IOException ex) {
+            Logger.getLogger(CompanyFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_menosDisenadoresButtonActionPerformed
 
     private void masSpritesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masSpritesButtonActionPerformed
         company.hireEmployee(2);
         cantSpritesLabel.setText(String.valueOf(company.getEmployees()[2].getSize()));
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        try {
+            storeJSON.setFile(getFile(), company.getRules().getCompanyEnum());
+        } catch (IOException ex) {
+            Logger.getLogger(CompanyFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_masSpritesButtonActionPerformed
 
     private void menosSpritesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosSpritesButtonActionPerformed
         company.fireEmployee(2);
         cantSpritesLabel.setText(String.valueOf(company.getEmployees()[2].getSize()));
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        try {
+            storeJSON.setFile(getFile(), company.getRules().getCompanyEnum());
+        } catch (IOException ex) {
+            Logger.getLogger(CompanyFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_menosSpritesButtonActionPerformed
 
     private void masProgramadoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masProgramadoresButtonActionPerformed
         company.hireEmployee(3);
         cantProgramadoresLabel.setText(String.valueOf(company.getEmployees()[3].getSize()));
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        try {
+            storeJSON.setFile(getFile(), company.getRules().getCompanyEnum());
+        } catch (IOException ex) {
+            Logger.getLogger(CompanyFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_masProgramadoresButtonActionPerformed
 
     private void menosProgramadoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosProgramadoresButtonActionPerformed
         company.fireEmployee(3);
         cantProgramadoresLabel.setText(String.valueOf(company.getEmployees()[3].getSize()));
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        try {
+            storeJSON.setFile(getFile(), company.getRules().getCompanyEnum());
+        } catch (IOException ex) {
+            Logger.getLogger(CompanyFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_menosProgramadoresButtonActionPerformed
 
     private void masDLCButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masDLCButtonActionPerformed
         company.hireEmployee(4);
         cantDLCLabel.setText(String.valueOf(company.getEmployees()[4].getSize()));
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        try {
+            storeJSON.setFile(getFile(), company.getRules().getCompanyEnum());
+        } catch (IOException ex) {
+            Logger.getLogger(CompanyFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_masDLCButtonActionPerformed
 
     private void menosDLCButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosDLCButtonActionPerformed
         company.fireEmployee(4);
         cantDLCLabel.setText(String.valueOf(company.getEmployees()[4].getSize()));
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        try {
+            storeJSON.setFile(getFile(), company.getRules().getCompanyEnum());
+        } catch (IOException ex) {
+            Logger.getLogger(CompanyFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_menosDLCButtonActionPerformed
 
     private void masIntegradoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masIntegradoresButtonActionPerformed
         company.hireEmployee(5);
         cantIntegradoresLabel.setText(String.valueOf(company.getEmployees()[5].getSize()));
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        try {
+            storeJSON.setFile(getFile(), company.getRules().getCompanyEnum());
+        } catch (IOException ex) {
+            Logger.getLogger(CompanyFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_masIntegradoresButtonActionPerformed
 
     private void menosIntegradoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosIntegradoresButtonActionPerformed
         company.fireEmployee(5);
         cantIntegradoresLabel.setText(String.valueOf(company.getEmployees()[5].getSize()));
         catnidadDeTrabajadores.setText(String.valueOf(company.getAmountOfEmployees()));
+        try {
+            storeJSON.setFile(getFile(), company.getRules().getCompanyEnum());
+        } catch (IOException ex) {
+            Logger.getLogger(CompanyFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_menosIntegradoresButtonActionPerformed
 
     private void vovlerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vovlerButtonActionPerformed
@@ -720,6 +789,23 @@ public class CompanyFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_vovlerButtonActionPerformed
 
 
+    private FileEntity getFile(){
+    
+        FileEntity file = new FileEntity();
+        
+        file.setDLCs(company.getEmployees()[4].getSize());
+        file.setLevels(company.getEmployees()[1].getSize());
+        file.setNarratives(company.getEmployees()[0].getSize());
+        file.setSistems(company.getEmployees()[3].getSize());
+        file.setSprites(company.getEmployees()[2].getSize());
+        file.setIntegrators(company.getEmployees()[5].getSize());
+        
+        file.setDeadLineDays(Global.daysBetweenReleases);
+        file.setDurationDay(Global.daysDuartion);
+        
+        return file;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar DLCProgressBar;
     private javax.swing.JLabel bgLabel;
