@@ -4,6 +4,8 @@
  */
 package Rules;
 
+import Enums.CompanyEnum;
+
 /**
  * Contiene los datos primordiales de una compañia como elemento para hacer un
  * juego, ganancias, numero de empleados y produccion por dia dependiendo del
@@ -50,6 +52,8 @@ public class CompanyRules {
     //Fotos
     protected String logo;
     protected String background;
+    
+    protected CompanyEnum companyEnum;
 
     /**
      * Identifica si un juego se puede hacer con los elementos almacenados en el
@@ -203,5 +207,19 @@ public class CompanyRules {
      */
     public void setBackground(String background) {
         this.background = background;
+    }
+
+    /**
+     * @return the companyEnum
+     */
+    public CompanyEnum getCompanyEnum() {
+        return companyEnum;
+    }
+
+    /**
+     * @param companyEnum the companyEnum to set
+     */
+    public void setCompanyEnum(CompanyEnum companyEnum) {
+        this.companyEnum = companyEnum;
     }
 }

@@ -4,6 +4,8 @@
  */
 package Rules;
 
+import Enums.CompanyEnum;
+
 /**
  * Tiene los datos de Nintendo
  * @author Masa500
@@ -36,5 +38,6 @@ public class NintendoRules extends CompanyRules{
         
         this.logo = "src\\Images\\nintendologo.png";
         this.background = "src\\Images\\nintendobg.jpg";
+        this.companyEnum = CompanyEnum.Nintendo;
     }
 }
