@@ -31,6 +31,7 @@ public class Settings extends javax.swing.JFrame {
     public Settings() {
         initComponents();
         
+        //Agrega los valores de los JSONs a la ventana
         try {
             FileEntity capcomFile = storeJSON.GetFile(CompanyEnum.Capcom);
             FileEntity nintendoFile = storeJSON.GetFile(CompanyEnum.Nintendo);
@@ -329,6 +330,10 @@ public class Settings extends javax.swing.JFrame {
         Global.mainMenu.setVisible(true);
     }//GEN-LAST:event_volver
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 o mas alto que los empleados totales de la empresa
+     * @param evt 
+     */
     private void capcomSistemasChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_capcomSistemasChange
         // TODO add your handling code here:
         if((int)this.capcomSistems.getValue() <= 0){
@@ -345,6 +350,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_capcomSistemasChange
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 o mas alto que los empleados totales de la empresa
+     * @param evt 
+     */
     private void capcomSpritesChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_capcomSpritesChange
         // TODO add your handling code here:
         if((int)this.capcomSprites.getValue() <= 0){
@@ -361,6 +370,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_capcomSpritesChange
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 o mas alto que los empleados totales de la empresa
+     * @param evt 
+     */
     private void capcomNivelesChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_capcomNivelesChange
         // TODO add your handling code here:
         if((int)this.capcomLevels.getValue() <= 0){
@@ -377,6 +390,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_capcomNivelesChange
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 o mas alto que los empleados totales de la empresa
+     * @param evt 
+     */
     private void capcomNarrativasChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_capcomNarrativasChange
         // TODO add your handling code here:
         if((int)this.capcomNarratives.getValue() <= 0){
@@ -393,6 +410,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_capcomNarrativasChange
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 o mas alto que los empleados totales de la empresa
+     * @param evt 
+     */
     private void capcomIntegratorsChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_capcomIntegratorsChange
         // TODO add your handling code here:
         if((int)this.capcomIntegrators.getValue() <= 0){
@@ -409,6 +430,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_capcomIntegratorsChange
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 o mas alto que los empleados totales de la empresa
+     * @param evt 
+     */
     private void nintendoSistemasChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_nintendoSistemasChange
         // TODO add your handling code here:
         if((int)this.nintendoSistems.getValue() <= 0){
@@ -425,6 +450,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_nintendoSistemasChange
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 o mas alto que los empleados totales de la empresa
+     * @param evt 
+     */
     private void nintendoSpritesChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_nintendoSpritesChange
         // TODO add your handling code here:
         if((int)this.nintendoSprites.getValue() <= 0){
@@ -441,6 +470,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_nintendoSpritesChange
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 o mas alto que los empleados totales de la empresa
+     * @param evt 
+     */
     private void nintendoNivelesChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_nintendoNivelesChange
         // TODO add your handling code here:
         if((int)this.nintendoLevels.getValue() <= 0){
@@ -457,6 +490,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_nintendoNivelesChange
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 o mas alto que los empleados totales de la empresa
+     * @param evt 
+     */
     private void nintendoNarrativasChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_nintendoNarrativasChange
         // TODO add your handling code here:
         if((int)this.nintendoNarratives.getValue() <= 0){
@@ -473,6 +510,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_nintendoNarrativasChange
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 o mas alto que los empleados totales de la empresa
+     * @param evt 
+     */
     private void nintendoDLCsChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_nintendoDLCsChange
         // TODO add your handling code here:
         if((int)this.nintendoDLCs.getValue() <= 0){
@@ -489,6 +530,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_nintendoDLCsChange
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 
+     * @param evt 
+     */
     private void tiempoDias(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tiempoDias
         // TODO add your handling code here:
         if((int)this.timeDuration.getValue() <= 0){
@@ -498,6 +543,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tiempoDias
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 
+     * @param evt 
+     */
     private void tiempoJuegos(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tiempoJuegos
         // TODO add your handling code here:
         if((int)this.timeGames.getValue() <= 0){
@@ -507,6 +556,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tiempoJuegos
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 o mas alto que los empleados totales de la empresa
+     * @param evt 
+     */
     private void capcomDLCsChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_capcomDLCsChange
         // TODO add your handling code here:
         
@@ -524,6 +577,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_capcomDLCsChange
 
+    /**
+     * Realiza el cambio de valor si es mas bajo que 0 o mas alto que los empleados totales de la empresa
+     * @param evt 
+     */
     private void nintendoIntegratorsChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_nintendoIntegratorsChange
         // TODO add your handling code here:
         int dif = validateEmployeesNumber(CompanyEnum.Nintendo);
@@ -534,6 +591,10 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_nintendoIntegratorsChange
 
+    /**
+     * Guarda los valores respectivos en los JSONs de cada compañia
+     * @param evt 
+     */
     private void guardar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar
         try {
             // TODO add your handling code here:

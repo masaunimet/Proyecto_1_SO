@@ -183,6 +183,9 @@ public class Company {
         }
     }
     
+    /**
+     * Actualiza el tiempo de trabajo de todos los workers
+     */
     public void updateTimes(){
     
         for (int i = 0; i < employees.length; i++) {
