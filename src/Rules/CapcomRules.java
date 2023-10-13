@@ -4,6 +4,8 @@
  */
 package Rules;
 
+import Enums.CompanyEnum;
+
 /**
  * Tiene los datos de Capcom
  *
@@ -37,5 +39,6 @@ public class CapcomRules extends CompanyRules {
 
         this.logo = "src\\Images\\capcomlogo.jpg";
         this.background = "src\\Images\\capcombg.jpg";
+        this.companyEnum = CompanyEnum.Capcom;
     }
 }

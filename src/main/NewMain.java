@@ -7,6 +7,7 @@ package main;
 
 
 import GUI.MainMenu;
+import GUI.Settings;
 
 
 
@@ -22,6 +23,8 @@ public class NewMain {
     public static void main(String[] args) {
 
         Global.mainMenu.setVisible(true);
+        MainMenu window = new MainMenu();
+        window.setVisible(true);
     }
 
 }

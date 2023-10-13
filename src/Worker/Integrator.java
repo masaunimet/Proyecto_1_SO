@@ -56,14 +56,14 @@ public class Integrator extends Worker {
                 Work();
                 //Si esta haciendo un juego espera 2 dias sino solo un dia
                 if (makingGame) {
-                    sleep(2 * dayDuration);
+                    sleep(2 * getDayDuration());
 
                     drive.getCostsMutex().acquire();
                     drive.setIntegratorCost(drive.getIntegratorCost() + costPerHour * 48);
                     drive.getCostsMutex().release();
 
                 } else {
-                    sleep(dayDuration);
+                    sleep(getDayDuration());
 
                     drive.getCostsMutex().acquire();
                     drive.setIntegratorCost(drive.getIntegratorCost() + costPerHour * 24);

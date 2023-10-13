@@ -93,6 +93,21 @@ public class List {
     public Node getpFirst() {
         return pFirst;
     }
+    
+    public Node getNode(int index){
+    
+        if(index>= this.size)
+            return null;
+        
+        Node node = this.getpFirst();
+        
+        for(int i=0; i < index; i++){
+            
+            node = node.getpNext();
+        }
+        
+        return node;
+    }
 
     public void setpFirst(Node pFirst) {
         this.pFirst = pFirst;

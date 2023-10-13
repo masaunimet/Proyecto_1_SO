@@ -17,7 +17,7 @@ import java.util.concurrent.Semaphore;
 public abstract class Worker extends Thread{
     
     protected WorkerTypeEnum type;
-    protected int dayDuration = 500;
+    private int dayDuration = 500;
     protected int daysWorked = 0;
     protected float costPerHour;
     protected Semaphore mutex;
@@ -67,5 +67,18 @@ public abstract class Worker extends Thread{
         this.hired = hired;
     }
     
+    /**
+     * @return the dayDuration
+     */
+    public int getDayDuration() {
+        return dayDuration;
+    }
+
+    /**
+     * @param dayDuration the dayDuration to set
+     */
+    public void setDayDuration(int dayDuration) {
+        this.dayDuration = dayDuration;
+    }
     
 }
