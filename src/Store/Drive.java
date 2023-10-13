@@ -40,7 +40,7 @@ public class Drive {
     private Semaphore consumerMutex = new Semaphore(1);
     
     //Days until release
-    private int daysUntilRelease = 15;
+    private int daysUntilRelease;
     private Semaphore daysMutex = new Semaphore(1);
     
     
